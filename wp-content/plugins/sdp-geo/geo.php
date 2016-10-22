@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: SDP - Geo Service
- * Depends: SDP - Plugin Utilities
+ * Depends: SDP - Plugin Utilities, Advanced Custom Fields PRO
  * Description: Adds required functionality to WP to allow for Location Based Queries
  * Version: 1.0
  * Author: SDPapaioannou
