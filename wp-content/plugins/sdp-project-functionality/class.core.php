@@ -81,21 +81,18 @@ class MCF_Core {
 	 *
 	 */
 	function register_post_types() {
-		/*
-		$custom_post_types = array(
-			'gallery' => array(
-				'public'        => false,
-				'menu_position' => 11,
-				'menu_icon'     => 'dashicons-admin-media',
-				'name_singular' => __( 'Gallery', 'xxx001' ),
-				'name_plural'   => __( 'Galleries', 'xxx001' ),
-				'has_archive'   => __( 'gallery', 'xxx001' ),
-				// 'rewrite'       => false
-			),
-		);
-		*/
 
-		$custom_post_types = array();
+        $custom_post_types = array(
+            'fct_contest' => array(
+                'public'        => true,
+                'menu_position' => 4,
+                'menu_icon'     => 'dashicons-facebook',
+                'name_singular' => __( 'Contest', 'fct001' ),
+                'name_plural'   => __( 'Contests', 'fct001' ),
+                'has_archive'   => __( 'Contest', 'fct001' ),
+                // 'rewrite'       => false
+            ),
+        );
 
 		foreach ( $custom_post_types as $post_type => $args ) {
 			$this->cpts[$post_type] = new Mlib_CPT( $post_type, $args );
@@ -111,19 +108,16 @@ class MCF_Core {
 	 */
 	function register_taxonomies() {
 
-		/*
+
 		$custom_taxonomies = array(
-			'location_type' => array(
-				'post_types'    => 'location',
-				'name_singular' => __( 'Type', 'xxx001' ),
+			'contest_type' => array(
+				'post_types'    => 'fct_contest',
+				'name_singular' => __( 'Contest Type', 'fct001' ),
 			  	'rewrite'       => array(
-					'slug' => _x( 'places', 'slug for the Location Type taxonomy', 'xxx001' )
+					'slug' => _x( 'contest', 'slug for the Contest Type taxonomy', 'fct001' )
 			  	)
 			),
-		)
-		*/
-
-		$custom_taxonomies = array( );
+		);
 
 		foreach ( $custom_taxonomies as $taxonomy => $args ) {
 			$post_types = isset( $args['post_types'] ) && ! empty( $args['post_types'] )
@@ -149,27 +143,30 @@ class MCF_Core {
 				'redirect'    => false
 			) );
 
+
 			/*
 
 			// Add sub page to Site Options
-
 			acf_add_options_sub_page( array(
 				'page_title'  => 'User Options',
 				'menu_slug'   => 'user-options',
 			  'parent_slug' => 'acf-options-site-options'
 			) );
 
-
-			
-			// Add custom post type Sub Options Page
-
-			acf_add_options_sub_page( array(
-				'page_title'  => 'Gallery Options',
-				'capability'  => 'edit_published_posts',
-				'parent_slug' => 'edit.php?post_type=gallery'
-			) );
-
 			*/
+
+
+            /*
+
+            // Add custom post type Sub Options Page
+
+            acf_add_options_sub_page( array(
+                'page_title'  => 'Gallery Options',
+                'capability'  => 'edit_published_posts',
+                'parent_slug' => 'edit.php?post_type=gallery'
+            ) );
+
+            */
 
 		}
 	}
