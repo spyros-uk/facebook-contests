@@ -1,6 +1,6 @@
 <?php
 
-class MSoc_Register_Settings{
+class MSoc_Register_Settings {
 
 
     /**

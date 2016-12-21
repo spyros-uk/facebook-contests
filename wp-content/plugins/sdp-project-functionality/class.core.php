@@ -89,10 +89,11 @@ class MCF_Core {
                 'menu_icon'     => 'dashicons-facebook',
                 'name_singular' => __( 'Contest', 'fct001' ),
                 'name_plural'   => __( 'Contests', 'fct001' ),
-                'has_archive'   => __( 'Contest', 'fct001' ),
-                // 'rewrite'       => false
+                'has_archive'   => __( 'Contest', 'fct001' )
             ),
         );
+
+
 
 		foreach ( $custom_post_types as $post_type => $args ) {
 			$this->cpts[$post_type] = new Mlib_CPT( $post_type, $args );
