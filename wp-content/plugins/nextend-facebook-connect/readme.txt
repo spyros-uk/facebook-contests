@@ -3,8 +3,8 @@ Contributors: nextendweb
 Tags: facebook, register, login, social connect, social, facebook connect
 Donate link: https://www.facebook.com/nextendweb
 Requires at least: 3.0
-Tested up to: 4.2.4
-Stable tag: 1.5.9
+Tested up to: 4.7.3
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ If you like our stuff donate a like to our [Facebook page](https://www.facebook.
 
 #### Usage
 
-After you activated the plugin, the plugin will autmatically 
+After you activated the plugin, the plugin will automatically
 
 * add the login buttons to the WordPress login page. See screenshot #1
 * add the account linking buttons to the WordPress profile page. See screenshot #2
@@ -71,6 +71,17 @@ After you activated the plugin, the plugin will autmatically
 2. Our Social Connect plugins in the profile page for account linking
 
 == Changelog ==
+
+= 2.0.2 =
+* Fix: Fatal error: Call to undefined method Facebook\Facebook::getAccessToken()
+
+= 2.0.1 =
+* Fix: Redirect uri mismatch in spacial server environment
+
+= 2.0.0 =
+* The latest Facebook PHP API used: https://github.com/facebook/php-graph-sdk
+* Facebook SDK for PHP requires PHP 5.4 or greater.
+* Fix: Facebook 2.2 API does not work anymore
 
 = 1.5.9 =
 * Nonce added to backend
@@ -245,3 +256,8 @@ After you activated the plugin, the plugin will autmatically
 
 = 1.2 =
 * Fixed a bug when the htaccess short urls not enabled.
+
+== Upgrade Notice ==
+
+= 2.0 =
+Facebook SDK for PHP requires PHP 5.4 or greater. Please check your server configuration before updating!

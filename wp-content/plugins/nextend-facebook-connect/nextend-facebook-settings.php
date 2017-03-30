@@ -58,7 +58,7 @@ if (!class_exists('NextendFBSettings')) {
 
             <div class="wrap">
 	<div id="newfb-options">
-	<div id="newfb-title"><h2>Facebook API Connect Settings</h2></div>
+	<div id="newfb-title"><h2>Nextend Facebook Connect Settings</h2></div>
         <?php
         global $newfb_status;
         if ($newfb_status == 'update_success') $message = __('Configuration updated', 'nextend-facebook-connect') . "<br />"; else if ($newfb_status == 'update_failed') $message = __('Error while saving options', 'nextend-facebook-connect') . "<br />"; else
@@ -74,20 +74,20 @@ if (!class_exists('NextendFBSettings')) {
         <?php
         if (!function_exists('curl_init')) {
             ?>
-            <div class="error"><strong><p>Facebook needs the CURL PHP extension.</p></strong></div>
+            <div class="error"><strong><p>Facebook needs the CURL PHP extension. Contact your server adminsitrator!</p></strong></div>
             <?php
         } else {
-            $version = curl_version();
+            $version       = curl_version();
             $ssl_supported = ($version['features'] & CURL_VERSION_SSL);
             if (!$ssl_supported) {
                 ?>
-                <div class="error"><strong><p>Protocol https not supported or disabled in libcurl.</p></strong></div>
+                <div class="error"><strong><p>Protocol https not supported or disabled in libcurl. Contact your server adminsitrator!</p></strong></div>
                 <?php
             }
         }
         if (!function_exists('json_decode')) {
             ?>
-            <div class="error"><strong><p>Facebook needs the JSON PHP extension.</p></strong></div>
+            <div class="error"><strong><p>Facebook needs the JSON PHP extension. Contact your server adminsitrator!</p></strong></div>
             <?php
         }
         ?>
@@ -122,19 +122,44 @@ if (!class_exists('NextendFBSettings')) {
   
   </div>
 
-	<!--left-->
-	<div class="postbox-container">
+        <!--right-->
+	<div class="postbox-container" style="float:right;width:30%;">
+	<div class="metabox-holder">
+	<div class="meta-box-sortables">
+
+	<!--about-->
+	<div id="newfb-about" class="postbox">
+	<h3 class="hndle"><?php _e('About this plugin', 'nextend-facebook-connect'); ?></h3>
+	<div class="inside"><ul>
+  
+  <li><a href="http://www.nextendweb.com/social-connect-plugins-for-wordpress.html" target="_blank"><?php _e('Check the related <b>blog post</b>!', 'nextend-facebook-connect'); ?></a></li>
+	<li><br></li>
+	<li><a href="http://wordpress.org/extend/plugins/nextend-facebook-connect/" target="_blank"><?php _e('Nextend Facebook Connect', 'nextend-facebook-connect'); ?></a></li>
+	<li><br></li>
+  <li><a href="http://profiles.wordpress.org/nextendweb" target="_blank"><?php _e('Nextend  plugins at WordPress.org', 'nextend-facebook-connect'); ?></a></li>
+	</ul></div>
+	</div>
+        <!--about end-->
+
+        <!--others-->
+        <!--others end-->
+
+	</div></div></div>
+        <!--right end-->
+
+        <!--left-->
+	<div class="postbox-container" style="float:left;width: 69%;">
 	<div class="metabox-holder">
 	<div class="meta-box-sortabless">
 
 	<!--setting-->
 	<div id="newfb-setting" class="postbox">
-	<h3 class="hndle"><?php _e('Facebook App Settings', 'nextend-facebook-connect'); ?></h3>
+	<h3 class="hndle"><?php _e('Settings', 'nextend-facebook-connect'); ?></h3>
         <?php $nextend_fb_connect = maybe_unserialize(get_option('nextend_fb_connect')); ?>
 
         <form method="post" action="<?php echo get_bloginfo("wpurl"); ?>/wp-admin/options-general.php?page=nextend-facebook-connect">
-        <?php wp_nonce_field( 'nextend-facebook-connect' ); ?>
-	<input type="hidden" name="newfb_update_options" value="Y">
+        <?php wp_nonce_field('nextend-facebook-connect'); ?>
+            <input type="hidden" name="newfb_update_options" value="Y">
 
 	<table class="form-table">
 		<tr>
@@ -206,7 +231,13 @@ if (!class_exists('NextendFBSettings')) {
       <?php if (!isset($nextend_fb_connect['fb_unlink_button'])) $nextend_fb_connect['fb_unlink_button'] = '<div class="new-fb-btn new-fb-1 new-fb-default-anim"><div class="new-fb-1-1"><div class="new-fb-1-1-1">UNLINK ACCOUNT</div></div></div>'; ?>
             <textarea cols="83" rows="3" name="fb_unlink_button"><?php echo esc_html($nextend_fb_connect['fb_unlink_button']); ?></textarea>
 		</td>
-	</tr>
+		</tr>
+    <tr>
+		<th scope="row"></th>
+		<td>
+    <a href="http://www.nextendweb.com/social-connect-button-generator" target="_blank"><img style="margin-left: -4px;" src="<?php echo plugins_url('generatorbanner.png', __FILE__); ?>"/></a>
+    </td>
+		</tr>
 	</table>
 
 	<p class="submit">
@@ -216,6 +247,11 @@ if (!class_exists('NextendFBSettings')) {
 	</div>
         <!--setting end-->
 
+        <!--others-->
+        <!--others end-->
+
+	</div></div></div>
+        <!--left end-->
 
 	</div>
 	</div>
