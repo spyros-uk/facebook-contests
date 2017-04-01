@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or die();
 // Register the class autoloader for
 // the library
 spl_autoload_register( function ( $class ) {
-	$prefix = 'MInc_';
+	$prefix = 'SDP_';
 
 	if ( substr( $class, 0, strlen( $prefix ) ) == $prefix ) {
 		$class = substr( $class, strlen( $prefix ) );
