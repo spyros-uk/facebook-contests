@@ -143,6 +143,12 @@ class SDP_Link {
 		echo self::get_link( $data, $attrs, $content );
 	}
 
+
+    /**
+     * Render an anchor tag
+     * @param $link
+     * @param $class
+     */
 	public static function the_link($link, $class) {
 	    $target = self::get_target($link);
 	    $url = self::get_url($link);
@@ -150,10 +156,22 @@ class SDP_Link {
 	    SDP_Html::render_link($url, $target, $link['text'], $class);
     }
 
+    /**
+     * Returns target of a link
+     * @param $link
+     * @return string
+     */
     public static function get_target($link) {
-	   return $link['type'] === 'custom' ? '_blank' : '_self';
+	   return $link['type'] === 'custom'
+           ? '_blank'
+           : '_self';
     }
 
+    /**
+     * Returns URL of a link
+     * @param $link
+     * @return string
+     */
     public static function get_url($link) {
         return $link['custom'] !== ''
             ? $link['custom']
