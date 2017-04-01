@@ -88,4 +88,16 @@ class SDP_Html {
 	static function element( $tag = 'div', $attrs = array(), $content = '' ) {
 		echo self::get_element( $tag, $attrs, $content );
 	}
+
+	static function build_link($url, $target, $text, $class) {
+        ob_start(); ?>
+        <a href="<?php echo $url ?>" target="<?php echo $target ?>" class="<?php echo $class ?>">
+            <?php echo $text ?>
+        </a>
+    <?php return ob_get_clean();
+    }
+
+    static function render_link($url, $target, $text, $class) {
+	    echo self::build_link($url, $target, $text, $class);
+    }
 }

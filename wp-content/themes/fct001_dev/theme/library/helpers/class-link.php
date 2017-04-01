@@ -142,4 +142,21 @@ class SDP_Link {
 	public static function link( $data = null, $attrs = array(), $content = '' ) {
 		echo self::get_link( $data, $attrs, $content );
 	}
+
+	public static function the_link($link, $class) {
+	    $target = self::get_target($link);
+	    $url = self::get_url($link);
+
+	    SDP_Html::render_link($url, $target, $link['text'], $class);
+    }
+
+    public static function get_target($link) {
+	   return $link['type'] === 'custom' ? '_blank' : '_self';
+    }
+
+    public static function get_url($link) {
+        return $link['custom'] !== ''
+            ? $link['custom']
+            : home_url( '/' ).$link['internal'];
+    }
 }
