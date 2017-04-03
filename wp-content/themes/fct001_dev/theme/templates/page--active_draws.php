@@ -4,6 +4,8 @@
  */
 ?>
 
+<?php get_header(); ?>
+
 <?php
 $page_object = get_queried_object();
 
@@ -60,3 +62,4 @@ $contests = get_posts($args);
         <?php endforeach; ?>
 </main>
 
+<?php get_footer(); ?>
