@@ -64,12 +64,12 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		*/
 
 		// Register navigation menus for theme
-		/*
+
 		register_nav_menus( array(
 			'primary' => 'Main Menu',
 			'footer'  => 'Footer Menu'
 		) );
-		*/
+
 
 
 		// Let wp know we are going to handle styling galleries
