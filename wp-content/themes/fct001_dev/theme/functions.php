@@ -14,8 +14,6 @@
 
 add_action( 'after_setup_theme',  'theme_setup' );
 
-add_action( 'after_setup_theme', 'add_custom_user_role' );
-
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
@@ -186,31 +184,4 @@ if ( ! function_exists( 'theme_scripts_localize' ) ) {
 			'ajax'  => add_query_arg( $ajax_url_params, admin_url( 'admin-ajax.php' ) )
 		) );
 	}
-}
-
-
-/**
- * Register and/or Enqueue
- * Scripts for the theme
- *
- * @since 1.0
- */
-if ( ! function_exists( 'add_custom_user_role' ) ) {
-    function add_custom_user_role() {
-
-        // Let wp know we want a custom role
-        add_role( 'client', 'Client' );
-
-        $role = get_role('client');
-
-        $role->add_cap( 'read' );
-        $role->add_cap( 'read_fct_contest' );
-        $role->add_cap( 'read_private_fct_contests' );
-        $role->add_cap( 'edit_fct_contest' );
-        $role->add_cap( 'edit_fct_contests' );
-        $role->add_cap( 'edit_published_fct_contests' );
-        $role->add_cap( 'publish_fct_contests' );
-        $role->add_cap( 'delete_private_fct_contests' );
-        $role->add_cap( 'delete_published_fct_contests' );
-    }
 }
