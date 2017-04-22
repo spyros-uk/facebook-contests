@@ -11,16 +11,10 @@
  */
 class SDP_DATE {
 
-    // http://php.net/manual/en/function.date-default-timezone-set.php
-    // http://php.net/manual/en/function.getdate.php | timestamp unix
-    // date_diff
-    //
-
-    public function get_date_diff($draw) {
-
-    }
-
-    public function the_draw_status() {
-
+    // Date format here must match the date format of ACF
+    public static function get_date_diff($date) {
+        $start_date = strtotime($date);
+        $current_date = strtotime(date('Y-m-d H:i:s'));
+        return $start_date - $current_date;
     }
 }
