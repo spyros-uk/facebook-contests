@@ -44,21 +44,24 @@ $contests = get_posts($args);
     <section class="prize-list">
         <?php foreach ($contests as $contest) :
             $start_date = get_field('start_date', $contest->ID);
-            $gallery = get_field('gallery', $contest->ID);
-            ?>
-            <div class="prize-list__item">
-                <div class="prize">
-                    <h3 class="prize__title">
-                        <?php echo $contest->post_title; ?>
-                    </h3>
-                    <div class="prize__content">
-                        <?php echo $contest->post_content; ?>
+            $is_draw_active = SDP_DRAWS::is_draw_active($start_date);
+
+                if ($is_draw_active) :
+                    $gallery = get_field('gallery', $contest->ID); ?>
+                    <div class="prize-list__item">
+                        <div class="prize">
+                            <h3 class="prize__title">
+                                <?php echo $contest->post_title; ?>
+                            </h3>
+                            <div class="prize__content">
+                                <?php echo $contest->post_content; ?>
+                            </div>
+                            <div>
+                                <?php //TODO: Remaining time ?>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <?php echo $start_date; ?>
-                    </div>
-                </div>
-            </div>
+                <?php endif; ?>
         <?php endforeach; ?>
 </main>
 
