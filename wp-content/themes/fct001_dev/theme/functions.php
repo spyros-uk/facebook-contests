@@ -116,6 +116,9 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		*/
 
 
+		// Sets defau;ts time zone
+        date_default_timezone_set('Europe/Athens');
+
 		// Register Autoloaders Loader
 		$theme_dir = get_template_directory();
 		include "$theme_dir/library/library-loader.php";
