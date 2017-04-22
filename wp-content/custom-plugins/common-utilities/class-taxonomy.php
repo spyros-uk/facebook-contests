@@ -144,13 +144,13 @@ class Mlib_Taxonomy {
 				'hierarchical' => true,
 				'ep_mask'      => EP_PERMALINK
 			),
-			'capabilities'          => array(
-				'manage_terms',
-				'edit_terms',
-				'delete_terms',
-				'assign_terms'
+			'capabilities'  => array(
+				'manage_terms'  =>  'manage_assign_contest_type',
+				'edit_terms'    =>  'edit_assign_contest_type',
+				'delete_terms'  =>  'delete_contest_type',
+				'assign_terms'  =>  'assign_contest_type'
 			),
-			'sort'                  => null
+			'sort'  => null
 		) );
 	}
 
