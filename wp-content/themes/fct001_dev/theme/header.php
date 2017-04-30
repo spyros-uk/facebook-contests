@@ -33,12 +33,4 @@
 
 <?php // common header content goes here ?>
 
-<?php
-    SDP_Menu::nav_menu( 'primary', array(
-        'depth'               => 1,
-        'menu_class'          => 'main-menu',
-        'show_header_class'   => false,
-        'add_submenu_toggles' => true,
-        'walker'              => new SDP_Walker_Nav_Menu
-    ) );
-?>
+<?php echo Component_Header::the_header('primary') ?>
