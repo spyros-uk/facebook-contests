@@ -8,4 +8,12 @@
 	margin: 0;
 	padding: 0;
 	height: 100%;
+
+	@include bp( $b_tablet ) {
+		padding: 10px;
+	}
+
+	a {
+		text-decoration: none;
+	}
 }

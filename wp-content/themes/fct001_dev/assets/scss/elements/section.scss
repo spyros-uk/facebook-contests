@@ -1,0 +1,11 @@
+.section {
+  margin-bottom: 20px;
+
+  p {
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

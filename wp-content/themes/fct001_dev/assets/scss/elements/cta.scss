@@ -1,0 +1,16 @@
+.cta-list {
+  margin: 0;
+  padding: 0;
+
+  @include bp( $b_tablet ) {
+      text-align: center;
+  }
+}
+
+.cta-list__item {
+  list-style: none;
+
+  @include bp( $b_tablet) {
+      margin-bottom: 10px;
+  }
+}

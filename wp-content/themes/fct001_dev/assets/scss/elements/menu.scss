@@ -1,0 +1,24 @@
+.main-menu {
+
+}
+
+.main-menu__list {
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu__item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &--current {
+
+  }
+}
+
+.main-menu__link {
+  color: $ca_txt_display;
+}
