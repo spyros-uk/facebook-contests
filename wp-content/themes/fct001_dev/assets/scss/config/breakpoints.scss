@@ -4,7 +4,7 @@
 /**
  * Prefix breakpoints with $b_
  * this makes them easier to find
- * with autocomplete
+ * with auto-complete
  *
  * You can use the 'bp' mixin to
  * easily use these breakpoints
@@ -15,11 +15,13 @@
 
 // mobile first queries
 $b_swatch:  '(max-width: 0px)';
-
 $b_mobile:  '(max-width: 400px)';
-
 $b_tablet:  '(max-width: 600px)';
-
 $b_laptop:  '(max-width: 800px)';
-
 $b_desktop: '(max-width: 1024px)';
+
+// desktop first queries
+$b_mobile_m:  '(min-width: 401px)';
+$b_tablet_m:  '(min-width: 601px)';
+$b_laptop_m:  '(min-width: 801px)';
+$b_desktop_m: '(min-width: 1025px)';
