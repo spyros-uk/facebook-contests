@@ -11,21 +11,21 @@
             $ctas = get_field('ctas', $pageId);
             ?>
 
-            <h1>
+            <h1 class="title title--primary">
                 <?php echo $title; ?>
             </h1>
 
-            <div>
+            <section class="section">
                 <?php echo $description; ?>
-            </div>
+            </section>
 
-            <div class="cta">
+            <ul class="cta-list">
                 <?php foreach ($ctas as $cta) : ?>
-                    <div class="cta__item">
+                    <li class="cta-list__item">
                         <?php SDP_Link::the_link($cta, 'button'); ?>
-                    </div>
+                    </li>
                 <?php endforeach; ?>
-            </div>
+            </ul>
 
         <?php endwhile; ?>
 

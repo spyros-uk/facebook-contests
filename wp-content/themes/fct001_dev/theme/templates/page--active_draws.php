@@ -51,21 +51,63 @@ $contests = get_posts($args);
 
                 if ($is_draw_active) :
                     $gallery = get_field('gallery', $contest->ID); ?>
-                    <div class="prize-list__item">
+                    <section class="prize-list__item">
                         <div class="prize">
+                            <div class="prize__front">
+                                <h2 class="prize__title">
+                                    <?php echo $contest->post_title; ?>
+                                </h2>
+                                <div class="prize__time-info">
+
+                                </div>
+                                <div class="prize__social-info">
+                                    <div class="prize__social-cta">
+
+                                    </div>
+                                    <div class="prize__social-count">
+
+                                    </div>
+                                </div>
+                                <div class="prize__social-info">
+                                    <div class="prize__social-cta">
+
+                                    </div>
+                                    <div class="prize__social-count">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prize__back">
+                                <div class="prize-tabs">
+                                    <h3 class="prize-tab__title"></h3>
+                                    <div class="prize-tab__description">
+
+                                    </div>
+                                    <h3 class="prize-tab__title">
+
+                                    </h3>
+                                    <div class="prize-tab__gallery">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prize">
+
                             <h3 class="prize__title">
                                 <?php echo $contest->post_title; ?>
                             </h3>
                             <div class="prize__content">
                                 <?php echo $contest->post_content; ?>
                             </div>
-                            <div>
+                            <div >
                                 <?php
                                     var_dump($remaining_full_time);
                                 ?>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 <?php endif; ?>
         <?php endforeach; ?>
 </main>
