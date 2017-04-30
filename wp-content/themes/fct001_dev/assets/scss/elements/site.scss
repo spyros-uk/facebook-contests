@@ -8,8 +8,18 @@
 	margin: 0;
 	padding: 0;
 	height: 100%;
+}
 
-	@include bp( $b_tablet ) {
+.site__body {
+	left: 50%;
+	max-width: $d_container_max;
+	transform: translateX(-50%);
+
+	@include bp( $b_laptop_m ) {
+	    padding-top: 20px;
+	}
+
+	@include bp( $b_desktop ) {
 		padding: 10px;
 	}
 

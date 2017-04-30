@@ -1,4 +1,9 @@
 .title {
+  margin-top: 0;
+
+  @include bp( $b_tablet ) {
+    margin-bottom: 15px;
+  }
 
   &--primary {
 

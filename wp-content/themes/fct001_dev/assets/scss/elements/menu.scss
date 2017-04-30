@@ -1,5 +1,7 @@
 .main-menu {
-
+  @include bp( $b_desktop_m ) {
+      text-align: right;
+  }
 }
 
 .main-menu__list {
@@ -12,6 +14,12 @@
 
   &:not(:last-child) {
     margin-right: 10px;
+  }
+
+  @include bp( $b_mobile ) {
+      display: block;
+      margin-bottom: 3px;
+      text-align: center;
   }
 
   &--current {
