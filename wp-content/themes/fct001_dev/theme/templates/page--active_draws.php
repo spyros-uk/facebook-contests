@@ -45,6 +45,9 @@ $contests = get_posts($args);
         <?php foreach ($contests as $contest) :
             $start_date = get_field('start_date', $contest->ID);
             $is_draw_active = SDP_DRAWS::is_draw_active($start_date);
+            $remaining_time = SDP_DATE::get_date_diff($start_date);
+            $dateClass = new SDP_DATE();
+            $remaining_full_time = $dateClass->get_remaining_time_with_units($start_date);
 
                 if ($is_draw_active) :
                     $gallery = get_field('gallery', $contest->ID); ?>
@@ -57,7 +60,9 @@ $contests = get_posts($args);
                                 <?php echo $contest->post_content; ?>
                             </div>
                             <div>
-                                <?php //TODO: Remaining time ?>
+                                <?php
+                                    var_dump($remaining_full_time);
+                                ?>
                             </div>
                         </div>
                     </div>
