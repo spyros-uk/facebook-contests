@@ -1,0 +1,253 @@
+
+// Raleway
+@font-face {
+  font-family:'Raleway-Regular';
+  src: url($p_fonts + 'Raleway/Raleway.eot');
+  src: url($p_fonts + 'Raleway/Raleway.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway.svg#Raleway') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Italic
+@font-face {
+  font-family:'Raleway-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Italic.svg#Raleway Italic') format('svg');
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Black
+@font-face {
+  font-family:'Raleway-Black';
+  src: url($p_fonts + 'Raleway/Raleway Black.eot');
+  src: url($p_fonts + 'Raleway/Raleway Black.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Black.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Black.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Black.svg#Raleway Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Black Italic
+@font-face {
+  font-family:'Raleway-Black-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Black Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Black Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Black Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Black Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Black Italic.svg#Raleway Black Italic') format('svg');
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Extra Bold
+@font-face {
+  font-family:'Raleway-ExtraBold';
+  src: url($p_fonts + 'Raleway/Raleway ExtraBold.eot');
+  src: url($p_fonts + 'Raleway/Raleway ExtraBold.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold.svg#Raleway ExtraBold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Extra Bold Italic
+@font-face {
+  font-family:'Raleway-ExtraBold-Italic';
+  src: url($p_fonts + 'Raleway/Raleway ExtraBold Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway ExtraBold Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway ExtraBold Italic.svg#Raleway ExtraBold Italic') format('svg');
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Extra Light
+@font-face {
+  font-family:'Raleway-Extra-Light';
+  src: url($p_fonts + 'Raleway/Raleway ExtraLight.eot');
+  src: url($p_fonts + 'Raleway/Raleway ExtraLight.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight.svg#Raleway ExtraLight') format('svg');
+  font-weight: 275;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Extra Light Italic
+@font-face {
+  font-family:'Raleway-Extra-Light-Italic';
+  src: url($p_fonts + 'Raleway/Raleway ExtraLight Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway ExtraLight Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway ExtraLight Italic.svg#Raleway ExtraLight Italic') format('svg');
+  font-weight: 275;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+
+// Raleway Light
+@font-face {
+  font-family:'Raleway-Light';
+  src: url($p_fonts + 'Raleway/Raleway Light.eot');
+  src: url($p_fonts + 'Raleway/Raleway Light.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Light.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Light.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Light.svg#Raleway Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Light Italic
+@font-face {
+  font-family:'Raleway-Light-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Light Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Light Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Light Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Light Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Light Italic.svg#Raleway Light Italic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Medium
+@font-face {
+  font-family:'Raleway-Medium';
+  src: url($p_fonts + 'Raleway/Raleway Medium.eot');
+  src: url($p_fonts + 'Raleway/Raleway Medium.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Medium.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Medium.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Medium.svg#Raleway Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Medium Italic
+@font-face {
+  font-family:'Raleway-Medium-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Medium Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Medium Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Medium Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Medium Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Medium Italic.svg#Raleway Medium Italic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Semi-Bold
+@font-face {
+  font-family:'Raleway-SemiBold';
+  src: url($p_fonts + 'Raleway/Raleway SemiBold.eot');
+  src: url($p_fonts + 'Raleway/Raleway SemiBold.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway SemiBold.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway SemiBold.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway SemiBold.svg#Raleway SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Semi-Bold Italic
+@font-face {
+  font-family:'Raleway-SemiBold';
+  src: url($p_fonts + 'Raleway/Raleway SemiBold Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway SemiBold Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway SemiBold Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway SemiBold Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway SemiBold Italic.svg#Raleway SemiBold Italic') format('svg');
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Thin
+@font-face {
+  font-family:'Raleway-Thin';
+  src: url($p_fonts + 'Raleway/Raleway Thin.eot');
+  src: url($p_fonts + 'Raleway/Raleway Thin.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Thin.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Thin.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Thin.svg#Raleway Thin') format('svg');
+  font-weight: 250;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Thin Italic
+@font-face {
+  font-family:'Raleway-Thin-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Thin Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Thin Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Thin Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Thin Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Thin Italic.svg#Raleway Thin Italic') format('svg');
+  font-weight: 250;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Bold
+@font-face {
+  font-family:'Raleway-Bold';
+  src: url($p_fonts + 'Raleway/Raleway Bold.eot');
+  src: url($p_fonts + 'Raleway/Raleway Bold.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Bold.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Bold.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Bold.svg#Raleway Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+// Raleway Bold Italic
+@font-face {
+  font-family:'Raleway-Bold-Italic';
+  src: url($p_fonts + 'Raleway/Raleway Bold Italic.eot');
+  src: url($p_fonts + 'Raleway/Raleway Bold Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Raleway/Raleway Bold Italic.woff2') format('woff2'),
+       url($p_fonts + 'Raleway/Raleway Bold Italic.woff') format('woff'),
+       url($p_fonts + 'Raleway/Raleway Bold Italic.svg#Raleway Bold Italic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}

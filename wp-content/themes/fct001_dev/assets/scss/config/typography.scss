@@ -8,12 +8,54 @@
  *
  */
 
-// examples:
+@import '../fonts/lato';
+@import '../fonts/raleway';
+@import '../fonts/roboto';
 
-// font family
-$t_font_display: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 
-$t_font_body: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+// Font Family List:
+$f_lato_R:       'Lato-Regular';
+$f_lato_I:       'Lato-Italic';
+$f_lato_B:       'Lato-Bold';
+$f_lato_BI:      'Lato-Bold-Italic';
+$f_lato_BL:      'Lato-Black';
+$f_lato_BLI:     'Lato-Black-Italic';
+$f_lato_BLI:     'Lato-Black-Italic';
+
+$f_raleway_R:     'Raleway-Regular';
+$f_raleway_I:     'Raleway-Italic';
+$f_raleway_B:     'Raleway-Bold';
+$f_raleway_BI:    'Raleway-Bold-Italic';
+$f_raleway_BL:    'Raleway-Black';
+$f_raleway_BLI:   'Raleway-Black-Italic';
+$f_raleway_EB:    'Raleway-Extra-Bold';
+$f_raleway_EBI:   'Raleway-Exra-Bold-Italic';
+$f_raleway_L:     'Raleway-Light';
+$f_raleway_LI:    'Raleway-Light-Italic';
+$f_raleway_EL:    'Raleway-Extra-Light';
+$f_raleway_ELI:   'Raleway-Extra-Light-Italic';
+$f_raleway_M:     'Raleway-Medium';
+$f_raleway_MI:    'Raleway-Medium-Italic';
+$f_raleway_SB:    'Raleway-SemiBold';
+$f_raleway_SBI:   'Raleway-SemiBold-Italic';
+$f_raleway_T:     'Raleway-Thin';
+$f_raleway_TI:    'Raleway-Thin-Italic';
+
+$f_roboto_R:     'Roboto-Regular';
+$f_roboto_I:     'Roboto-Italic';
+$f_roboto_B:     'Roboto-Bold';
+$f_roboto_BI:    'Roboto-Bold-Italic';
+$f_roboto_T:     'Roboto-Thin';
+$f_roboto_TI:    'Roboto-Thin-Italic';
+$f_roboto_M:     'Roboto-Medium';
+$f_roboto_MI:    'Roboto-Medium-Italic';
+$f_roboto_L:     'Roboto-Light';
+$f_roboto_LI:    'Roboto-Light-Italic';
+$f_roboto_BL:    'Roboto-Black';
+$f_roboto_BLI:   'Roboto-Black-Italic';
+
+// Font Family Appliance:
+
 
 // font size
 $t_size_base: 16px;

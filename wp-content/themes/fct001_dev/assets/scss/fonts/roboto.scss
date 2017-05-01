@@ -1,0 +1,167 @@
+// Roboto
+@font-face {
+  font-family:'Roboto-Regular';
+  src: url($p_fonts + 'Roboto/Roboto.eot');
+  src: url($p_fonts + 'Roboto/Roboto.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto.svg#Roboto') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Italic
+@font-face {
+  font-family:'Roboto-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Italic.svg#Roboto Italic') format('svg');
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Bold
+@font-face {
+  font-family:'Roboto-Bold';
+  src: url($p_fonts + 'Roboto/Roboto Bold.eot');
+  src: url($p_fonts + 'Roboto/Roboto Bold.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Bold.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Bold.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Bold.svg#Roboto Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Bold Italic
+@font-face {
+  font-family:'Roboto-Bold-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Bold Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Bold Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Bold Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Bold Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Bold Italic.svg#Roboto Bold Italic') format('svg');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Thin
+@font-face {
+  font-family:'Roboto-Thin';
+  src: url($p_fonts + 'Roboto/Roboto Thin.eot');
+  src: url($p_fonts + 'Roboto/Roboto Thin.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Thin.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Thin.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Thin.svg#Roboto Thin') format('svg');
+  font-weight: 250;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Thin Italic
+@font-face {
+  font-family:'Roboto-Thin-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Thin Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Thin Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Thin Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Thin Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Thin Italic.svg#Roboto Thin Italic') format('svg');
+  font-weight: 250;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Medium
+@font-face {
+  font-family:'Roboto-Medium';
+  src: url($p_fonts + 'Roboto/Roboto Medium.eot');
+  src: url($p_fonts + 'Roboto/Roboto Medium.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Medium.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Medium.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Medium.svg#Roboto Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Medium Italic
+@font-face {
+  font-family:'Roboto-Medium-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Medium Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Medium Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Medium Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Medium Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Medium Italic.svg#Roboto Medium Italic') format('svg');
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Light
+@font-face {
+  font-family:'Roboto-Light';
+  src: url($p_fonts + 'Roboto/Roboto Light.eot');
+  src: url($p_fonts + 'Roboto/Roboto Light.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Light.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Light.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Light.svg#Roboto Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Light Italic
+@font-face {
+  font-family:'Roboto-Light-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Light Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Light Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Light Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Light Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Light Italic.svg#Roboto Light Italic') format('svg');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Black
+@font-face {
+  font-family:'Roboto-Black';
+  src: url($p_fonts + 'Roboto/Roboto Black.eot');
+  src: url($p_fonts + 'Roboto/Roboto Black.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Black.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Black.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Black.svg#Roboto Black') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
+
+// Roboto Black Itlic
+@font-face {
+  font-family:'Roboto-Black-Italic';
+  src: url($p_fonts + 'Roboto/Roboto Black Italic.eot');
+  src: url($p_fonts + 'Roboto/Roboto Black Italic.eot?#iefix') format('embedded-opentype'),
+       url($p_fonts + 'Roboto/Roboto Black Italic.woff2') format('woff2'),
+       url($p_fonts + 'Roboto/Roboto Black Italic.woff') format('woff'),
+       url($p_fonts + 'Roboto/Roboto Black Italic.svg#Roboto Black Italic') format('svg');
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-2044;
+}
