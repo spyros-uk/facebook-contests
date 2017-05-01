@@ -9,6 +9,7 @@
   display: inline-block;
   list-style: none;
 
+  font-family: $fa_text_cta;
   &:not(:last-child) {
     margin-right: 20px;
   }

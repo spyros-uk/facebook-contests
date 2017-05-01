@@ -33,4 +33,8 @@
 
 <?php // common header content goes here ?>
 
-<?php echo Component_Header::the_header('primary') ?>
+<?php
+    if (is_user_logged_in()) {
+        echo Component_Header::the_header('primary');
+    }
+?>

@@ -3,13 +3,13 @@
 <main class="site__main">
     <?php if (have_posts()) : ?>
 
-        <?php while (have_posts()) : the_post(); ?>
-            <?php
+        <?php while (have_posts()) : the_post();
+            $class = is_user_logged_in() ? '' : 'hero-content--spaced';
             $pageId = get_the_ID();
             $title = get_field('title', $pageId);
             $description = get_field('description', $pageId);
             $ctas = get_field('ctas', $pageId);
-            ?>
+        ?>
 
             <section class="hero-content">
                 <h1 class="title title--primary">
