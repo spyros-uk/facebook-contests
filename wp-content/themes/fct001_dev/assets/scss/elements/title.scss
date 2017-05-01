@@ -1,6 +1,8 @@
 .title {
   margin-top: 0;
 
+  font-family: $fa_text_header;
+
   @include bp( $b_tablet ) {
     margin-bottom: 15px;
   }

@@ -55,7 +55,17 @@ $f_roboto_BL:    'Roboto-Black';
 $f_roboto_BLI:   'Roboto-Black-Italic';
 
 // Font Family Appliance:
-
+$fa_text_body: $f_lato_R;
+$fa_text_header: $f_raleway_SB;
+$fa_text_cta: $f_roboto_B;
 
 // font size
-$t_size_base: 16px;
+$t_size_S: 16px;
+$t_size_M: 18px;
+$t_size_L: 22px;
+$t_size_XL: 28px;
+
+// font size appliance:
+$ta_text_body: '';
+$ta_text_header: '';
+$ta_text_cta: '';

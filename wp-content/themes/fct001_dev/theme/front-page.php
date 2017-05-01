@@ -11,7 +11,7 @@
             $ctas = get_field('ctas', $pageId);
             ?>
 
-            <section class="hero-banner">
+            <section class="hero-content">
                 <h1 class="title title--primary">
                     <?php echo $title; ?>
                 </h1>

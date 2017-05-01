@@ -1,4 +1,6 @@
 .main-menu {
+  font-family: $fa_text_cta;
+
   @include bp( $b_desktop_m ) {
       text-align: right;
   }
