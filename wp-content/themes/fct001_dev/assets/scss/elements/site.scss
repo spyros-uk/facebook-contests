@@ -15,7 +15,7 @@
 		width: 100vw;
 		height: 100vh;
 
-		z-index: -2;
+		z-index: $z_behind_scenes;
 		pointer-events: none;
 		user-select: none;
 
@@ -31,7 +31,7 @@
 		width: 100vw;
 		height: 100vh;
 
-		z-index: -1;
+		z-index: $z_bg;
 		pointer-events: none;
 		user-select: none;
 		opacity: .6;
