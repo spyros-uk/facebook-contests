@@ -2,20 +2,52 @@
 		Site
    ========================================= */
 
-.site,
-.site__body {
+.site {
 	position: relative;
 	margin: 0;
 	padding: 0;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+
+		z-index: -2;
+		pointer-events: none;
+		user-select: none;
+
+		background: url($p_images + $im_hero_bg) no-repeat;
+		background-size: cover;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+
+		z-index: -1;
+		pointer-events: none;
+		user-select: none;
+		opacity: .6;
+
+		background-color: $ca_hero_bg;
+	}
 }
 
 .site__body {
+	position: relative;
 	left: 50%;
 	max-width: $d_container_max;
 	transform: translateX(-50%);
 
 	@include bp( $b_laptop_m ) {
-	    padding-top: 20px;
+	    padding-top: 70px;
 	}
 
 	@include bp( $b_desktop ) {

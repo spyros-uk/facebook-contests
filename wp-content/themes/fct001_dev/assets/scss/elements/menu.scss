@@ -13,22 +13,48 @@
 
 .main-menu__item {
   display: inline-block;
+  position: relative;
 
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 40px;
   }
 
   @include bp( $b_mobile ) {
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
       text-align: center;
   }
 
-  &--current {
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: 2px;
 
+    transform: scale(0);
+    transition: transform .4s ease;
+    transform-origin: 40% 0;
+
+    background-color: $ca_txt_header;
+  }
+
+  &:hover {
+    &:before {
+      transform: scale(1);
+    }
+  }
+
+  &--current {
+    &:before {
+      transform: scale(1);
+    }
   }
 }
 
 .main-menu__link {
-  color: $ca_txt_display;
+  position: relative;
+  color: $ca_txt_header;
 }

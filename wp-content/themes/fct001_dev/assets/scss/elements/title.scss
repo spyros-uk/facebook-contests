@@ -1,7 +1,9 @@
 .title {
   margin-top: 0;
+  max-width: 420px;
 
   font-family: $fa_text_header;
+  color: $ca_txt_header;
 
   @include bp( $b_tablet ) {
     margin-bottom: 15px;
