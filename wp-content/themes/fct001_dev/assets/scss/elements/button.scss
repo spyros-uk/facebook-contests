@@ -1,3 +1,32 @@
 .button {
+  position: relative;
+  border: 2px solid $ca_txt_cta;
+  border-radius: 22px;
+  padding: 10px 25px;
+
+  font-family: $fa_text_cta;
   color: $ca_txt_cta;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity .4s ease;
+    opacity: 0;
+
+    background-color: $ca_txt_cta;
+  }
+  
+  &:hover {
+    &:before {
+      opacity: .2;
+    }
+  }
 }
