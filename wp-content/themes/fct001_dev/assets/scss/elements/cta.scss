@@ -6,14 +6,19 @@
 }
 
 .cta-list__item {
-  display: inline-block;
+  display: block;
+  margin-bottom: 10px;
   list-style: none;
 
-  &:not(:last-child) {
-    margin-right: 100px;
+  @include bp( $b_tablet) {
+
   }
 
-  @include bp( $b_tablet) {
-      margin-bottom: 10px;
+  @include bp( $b_tablet_m ) {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 100px;
+      margin-bottom: 0;
+    }
   }
 }
