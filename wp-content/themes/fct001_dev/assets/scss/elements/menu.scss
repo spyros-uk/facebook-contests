@@ -1,8 +1,8 @@
 .main-menu {
   font-family: $fa_text_cta;
 
-  @include bp( $b_desktop_m ) {
-      text-align: right;
+  @include bp($b_laptop_m) {
+    text-align: right;
   }
 }
 
@@ -19,19 +19,33 @@
     margin-right: 40px;
   }
 
-  @include bp( $b_mobile ) {
-      display: block;
-      margin-bottom: 5px;
-      text-align: center;
+  @include bp($b_tablet) {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 12px;
+    text-align: left;
+
+    &:nth-child(2) {
+      margin-left: 22px;
+    }
+
+    &:nth-child(3) {
+      margin-left: 51px;
+    }
   }
+}
+
+.main-menu__link {
+  position: relative;
+  color: $ca_txt_header;
 
   &:before {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
+    bottom: 3px;
+    right: -62px;
     border-radius: 3px;
-    width: 100%;
+    width: 60px;
     height: 2px;
 
     transform: scale(0);
@@ -39,6 +53,12 @@
     transform-origin: 40% 0;
 
     background-color: $ca_txt_header;
+
+    @include bp( $b_tablet_m ) {
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+    }
   }
 
   &:hover {
@@ -47,14 +67,9 @@
     }
   }
 
-  &--current {
+  .main-menu__item--current & {
     &:before {
       transform: scale(1);
     }
   }
-}
-
-.main-menu__link {
-  position: relative;
-  color: $ca_txt_header;
 }
