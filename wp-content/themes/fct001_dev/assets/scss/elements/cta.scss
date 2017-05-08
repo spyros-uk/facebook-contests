@@ -10,10 +10,6 @@
   margin-bottom: 10px;
   list-style: none;
 
-  @include bp( $b_tablet) {
-
-  }
-
   @include bp( $b_tablet_m ) {
     display: inline-block;
     &:not(:last-child) {
