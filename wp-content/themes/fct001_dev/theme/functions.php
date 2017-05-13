@@ -188,7 +188,7 @@ if ( ! function_exists( 'admin_css' ) ) {
 
             body:before {
                 content: '';
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 width: 100vw;
@@ -204,7 +204,7 @@ if ( ! function_exists( 'admin_css' ) ) {
 
             body:after {
                 content: '';
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 width: 100vw;
@@ -219,21 +219,22 @@ if ( ! function_exists( 'admin_css' ) ) {
             }
 
             body.login div#login h1 a {
-
+                position: relative;
                 width: 100px;
                 height: 107px;
-                margin-bottom: 0;
+                margin-bottom: 20px;
 
-                background: url("<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo_trans.png") no-repeat center center;
+                background: url("<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo_white_bg.png") no-repeat center center;
                 background-size: 100%;
             }
 
             .message {
-                /* border: 2px solid white; */
                 border-radius: 22px;
+                border-left-width: 0 !important;
 
                 color: white;
                 font-size: 18px;
+                text-align: center;
 
                 background-color: transparent !important;
             }
@@ -242,6 +243,18 @@ if ( ! function_exists( 'admin_css' ) ) {
                 border-radius: 22px;
                 box-shadow: none !important;
                 background-color: transparent !important;
+            }
+
+            @media (max-width: 600px) {
+                .login form {
+                    padding-bottom: 6px !important;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .login form {
+                    padding-bottom: 15vh !important;
+                }
             }
 
             #loginform h3 {
@@ -259,8 +272,9 @@ if ( ! function_exists( 'admin_css' ) ) {
                 padding: 0 0 3px 14px !important;
             }
 
-            input#user_login {
-
+            .newsociallogins {
+                position: relative;
+                left: 10px;
             }
 
             .new-fb-1-1 {
@@ -287,6 +301,34 @@ if ( ! function_exists( 'admin_css' ) ) {
                 transform: translateX(-100%);
 
                 background: url('http://localhost/fct001/wp-content/plugins/nextend-facebook-connect/buttons/facebook-btn.png') no-repeat 0 0;
+            }
+
+            .forgetmenot label {
+                position: relative;
+                top: 6px;
+
+                font-size: 12px !important;
+                text-transform: uppercase;
+            }
+
+            input#rememberme {
+                background-color: transparent !important;
+            }
+
+            .submit input#wp-submit {
+                border: 1px solid white;
+                border-radius: 22px;
+                padding: 0 25px !important;
+                box-sizing: content-box;
+                background-color: transparent !important;
+            }
+
+            #nav a {
+                color: white !important;
+            }
+
+            #backtoblog a {
+                color: white !important;
             }
         </style>
 
