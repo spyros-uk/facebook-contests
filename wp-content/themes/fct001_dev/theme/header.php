@@ -25,6 +25,8 @@
 	<script async defer src="<?php echo get_template_directory_uri(); ?>/assets/js/core.js"></script>
 
 	<?php wp_head(); ?>
+
+    <?php echo Component_Favicon::the_favicon(); ?>
 </head>
 <body class="site__body">
 <?php // <body> closes in footer.php ?>

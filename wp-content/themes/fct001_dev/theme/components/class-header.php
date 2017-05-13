@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Component_Menu
+ * Class Component_Header
  *
  */
 class Component_Header {
