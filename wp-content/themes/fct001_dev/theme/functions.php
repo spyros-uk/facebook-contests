@@ -253,11 +253,16 @@ if ( ! function_exists( 'admin_css' ) ) {
 
             @media (min-width: 1200px) {
                 .login form {
-                    padding-bottom: 15vh !important;
+                    padding-bottom: 10vh !important;
                 }
             }
 
             #loginform h3 {
+                margin: 20px 0;
+                color: white !important;
+            }
+
+            #registerform h3 {
                 margin: 20px 0;
                 color: white !important;
             }
@@ -270,6 +275,17 @@ if ( ! function_exists( 'admin_css' ) ) {
             .login input {
                 border-radius: 22px;
                 padding: 0 0 3px 14px !important;
+            }
+
+            #login_error {
+                border-left-color: #dc3232;
+                border-right-color: #dc3232;
+                border-right-width: 4px !important;
+                border-radius: 22px;
+
+                color: white;
+
+                background-color: transparent !important;
             }
 
             .newsociallogins {
@@ -309,6 +325,10 @@ if ( ! function_exists( 'admin_css' ) ) {
 
                 font-size: 12px !important;
                 text-transform: uppercase;
+            }
+
+            p#reg_passmail {
+                color: white;
             }
 
             input#rememberme {
