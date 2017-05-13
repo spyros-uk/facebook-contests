@@ -18,6 +18,12 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
+add_action( 'login_enqueue_scripts', 'admin_css' ); // Adds custom css to admin page
+
+add_filter( 'login_headerurl', 'login_logo_url' ); // Add custom logo title
+
+add_filter( 'login_headertitle', 'login_logo_url_title' ); // Add custom logo title
+
 // expose php variables to js. just uncomment line
 // below and see function theme_scripts_localize
 // add_action( 'wp_enqueue_scripts', 'theme_scripts_localize', 20 );
@@ -139,6 +145,152 @@ if ( ! function_exists( 'theme_styles' ) ) {
 		$theme_dir = get_stylesheet_directory_uri();
 
 		wp_enqueue_style( 'main', "$theme_dir/assets/css/main.css", array(), null, 'all' );
+	}
+}
+
+/**
+ * Sets logo url
+ *
+ * @since 1.0
+ */
+if ( ! function_exists( 'login_logo_url' ) ) {
+    function login_logo_url() {
+        return home_url();
+    }
+}
+
+
+/**
+ * Sets logo
+ * url title
+ *
+ * @since 1.0
+ */
+if ( ! function_exists( 'login_logo_url_title' ) ) {
+    function login_logo_url_title() {
+        return get_bloginfo('name');
+    }
+}
+
+/**
+ * Register and/or Enqueue
+ * Styles for the admin page
+ *
+ * @since 1.0
+ */
+if ( ! function_exists( 'admin_css' ) ) {
+	function admin_css() { ?>
+
+        <style type="text/css">
+            body {
+                position: relative;
+            }
+
+            body:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+
+                z-index: -2;
+                pointer-events: none;
+                user-select: none;
+
+                background: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/img/concert_confeti.jpg') no-repeat !important;
+                background-size: cover !important;
+            }
+
+            body:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+
+                z-index: -1;
+                pointer-events: none;
+                user-select: none;
+                opacity: .6;
+
+                background-color: black;
+            }
+
+            body.login div#login h1 a {
+
+                width: 100px;
+                height: 107px;
+                margin-bottom: 0;
+
+                background: url("<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo_trans.png") no-repeat center center;
+                background-size: 100%;
+            }
+
+            .message {
+                /* border: 2px solid white; */
+                border-radius: 22px;
+
+                color: white;
+                font-size: 18px;
+
+                background-color: transparent !important;
+            }
+
+            .login form {
+                border-radius: 22px;
+                box-shadow: none !important;
+                background-color: transparent !important;
+            }
+
+            #loginform h3 {
+                margin: 20px 0;
+                color: white !important;
+            }
+
+            .login label {
+                font-size: 18px !important;
+                color: white !important;
+            }
+
+            .login input {
+                border-radius: 22px;
+                padding: 0 0 3px 14px !important;
+            }
+
+            input#user_login {
+
+            }
+
+            .new-fb-1-1 {
+                position: relative;
+            }
+
+            .button--login.new-fb-btn {
+                position: relative;
+                top: -20px;
+                border: 0 !important;
+
+                box-shadow: none !important;
+
+                background: none !important;
+            }
+
+            .new-fb-1-1:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 42px;
+                transform: translateX(-100%);
+
+                background: url('http://localhost/fct001/wp-content/plugins/nextend-facebook-connect/buttons/facebook-btn.png') no-repeat 0 0;
+            }
+        </style>
+
+        <?php
 	}
 }
 
