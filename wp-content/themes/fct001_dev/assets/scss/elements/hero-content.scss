@@ -2,7 +2,7 @@
   position: relative;
   margin-top: 6vh;
 
-  @include bp( $b_tablet_m ) {
+  @include bp($b_tablet_m) {
     margin-top: 22vh;
   }
   &--spaced {

@@ -98,6 +98,16 @@ if ( ! function_exists( 'theme_setup' ) ) {
 		add_image_size( 'ExampleImageSize', 1200, 450, true ); // Example Image Size
 		...
 		*/
+        // Add Custom Image Sizes
+        add_image_size( 'contest_background_large', 1920, 1080, false );
+        add_image_size( 'contest_background_medium', 1690, 600, false );
+        add_image_size( 'contest_background_small', 640, 600, false );
+        add_image_size( 'contest_gallery_icon', 320, 30, false );
+
+
+        // Set Defaults to Attachment Display Settings
+        update_option('image_default_size', 'large' );
+        update_option('image_default_link_type', 'none' );
 
 
 		// WPML configuration
@@ -223,6 +233,9 @@ if ( ! function_exists( 'admin_css' ) ) {
                 width: 100px;
                 height: 107px;
                 margin-bottom: 20px;
+
+                user-select: none;
+                outline: none;
 
                 background: url("<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo_white_bg.png") no-repeat center center;
                 background-size: 100%;

@@ -32,17 +32,18 @@ $args = array(
 $contests = get_posts($args);
 ?>
 
-<main class="stite__main">
-    <h1>
+<main class="site__main">
+    <h1 class="title title--primary">
         <?php echo $page_object->post_title; ?>
     </h1>
 
-    <div>
+    <div class="text text--low-margin">
         <?php echo $page_object->post_content; ?>
     </div>
 
     <section class="prize-list">
         <?php foreach ($contests as $contest) :
+            $image_id = get_post_thumbnail_id( $contest->ID );
             $start_date = get_field('start_date', $contest->ID);
             $is_draw_active = SDP_DRAWS::is_draw_active($start_date);
             $remaining_time = SDP_DATE::get_date_diff($start_date);
@@ -51,63 +52,60 @@ $contests = get_posts($args);
 
                 if ($is_draw_active) :
                     $gallery = get_field('gallery', $contest->ID); ?>
-                    <section class="prize-list__item">
+                    <div class="prize-list__item">
                         <div class="prize">
-                            <div class="prize__front">
+                            <?php
+                            SDP_Image::background(
+                                $image_id,
+                                'contest_background_small',
+                                array(
+                                    'contest_background_medium' => '(min-width: 600px)',
+                                    'contest_background_large' => '(min-width: 1024px)'),
+                                array(
+                                    'class' => 'prize__background'
+                                ));
+                            ?>
+                            <div class="prize__header">
                                 <h2 class="prize__title">
                                     <?php echo $contest->post_title; ?>
                                 </h2>
                                 <div class="prize__time-info">
-
-                                </div>
-                                <div class="prize__social-info">
-                                    <div class="prize__social-cta">
-
-                                    </div>
-                                    <div class="prize__social-count">
-
-                                    </div>
-                                </div>
-                                <div class="prize__social-info">
-                                    <div class="prize__social-cta">
-
-                                    </div>
-                                    <div class="prize__social-count">
-
-                                    </div>
+                                    <span class="prize__time-value">
+                                        <?php echo $remaining_full_time->time ?>
+                                    </span>
+                                    <span class="prize__time-units">
+                                        <?php echo $remaining_full_time->units ?>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="prize__back">
-                                <div class="prize-tabs">
-                                    <h3 class="prize-tab__title"></h3>
-                                    <div class="prize-tab__description">
 
-                                    </div>
-                                    <h3 class="prize-tab__title">
-
-                                    </h3>
-                                    <div class="prize-tab__gallery">
-
-                                    </div>
+                            <div class="prize__body">
+                                <div class="prize__description">
+                                    <?php echo $contest->post_content ?>
+                                </div>
+                                <div class="prize__gallery">
+                                    <?php foreach ($gallery as $gallery_item)
+                                        SDP_Image::picture(
+                                            $gallery_item['ID'],
+                                            'contest_background_small',
+                                            array(
+                                                'contest_background_medium' => '(min-width: 600px)',
+                                                'contest_background_large' => '(min-width: 1024px)'),
+                                            array(
+                                                'class' => 'prize__gallery-item'
+                                            ));
+                                    ?>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="prize">
-
-                            <h3 class="prize__title">
-                                <?php echo $contest->post_title; ?>
-                            </h3>
-                            <div class="prize__content">
-                                <?php echo $contest->post_content; ?>
-                            </div>
-                            <div >
-                                <?php
-                                    var_dump($remaining_full_time);
-                                ?>
+                            <div class="prize__footer">
+                                <button class="prize__more"></button>
+                                <div class="prize__likes">
+                                    136 Likes
+                                </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 <?php endif; ?>
         <?php endforeach; ?>
 </main>

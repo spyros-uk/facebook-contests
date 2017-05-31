@@ -9,7 +9,7 @@
 
 	&:before {
 		content: '';
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100vw;
@@ -25,7 +25,7 @@
 
 	&:after {
 		content: '';
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100vw;
@@ -43,7 +43,7 @@
 .site__body {
 	position: relative;
 	left: 50%;
-	max-width: $d_container_max;
+	max-width: $d_container_site_max;
 	transform: translateX(-50%);
 
 	@include bp( $b_laptop_m ) {
