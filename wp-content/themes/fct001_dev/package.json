@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "babel-polyfill": "6.5.0",
+    "jquery": "^3.2.1",
     "lazysizes": "1.4.0",
     "picturefill": "3.0.2"
   }
