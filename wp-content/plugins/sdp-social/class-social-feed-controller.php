@@ -130,7 +130,7 @@ class MSoc_Social_Feed_Controller {
 			? intval( $_GET['count'] )
 			: 8;
 
-		$platforms = array( 'fb', 'ig', 'tw' );
+		$platforms = array( 'config', 'ig', 'tw' );
 		if ( isset( $_GET['platforms'] ) && is_array( $_GET['platforms'] ) ) {
 			$platforms = array_intersect( $platforms, $_GET['platforms'] );
 		}

@@ -134,7 +134,7 @@ function new_fb_login_action() {
         if ($user_info->ID) {
             $wpdb->query($wpdb->prepare('DELETE FROM ' . $wpdb->prefix . 'social_users
           WHERE ID = %d
-          AND type = \'fb\'', $user_info->ID));
+          AND type = \'config\'', $user_info->ID));
             set_site_transient($user_info->ID . '_new_fb_admin_notice', __('Your Facebook profile is successfully unlinked from your account.', 'nextend-facebook-connect'), 3600);
         }
         new_fb_redirect();
@@ -205,7 +205,7 @@ function new_fb_login_action() {
         $user_profile = $response->getGraphUser();
 
         $ID = $wpdb->get_var($wpdb->prepare('
-        SELECT ID FROM ' . $wpdb->prefix . 'social_users WHERE type = "fb" AND identifier = "%d"
+        SELECT ID FROM ' . $wpdb->prefix . 'social_users WHERE type = "config" AND identifier = "%d"
       ', $user_profile['id']));
         if (!get_user_by('id', $ID)) {
             $wpdb->query($wpdb->prepare('
@@ -255,7 +255,7 @@ function new_fb_login_action() {
                 if ($ID) {
                     $wpdb->insert($wpdb->prefix . 'social_users', array(
                         'ID'         => $ID,
-                        'type'       => 'fb',
+                        'type'       => 'config',
                         'identifier' => $user_profile['id']
                     ), array(
                         '%d',
@@ -291,7 +291,7 @@ function new_fb_login_action() {
 
                 $wpdb->insert($wpdb->prefix . 'social_users', array(
                     'ID'         => $current_user->ID,
-                    'type'       => 'fb',
+                    'type'       => 'config',
                     'identifier' => $user_profile['id']
                 ), array(
                     '%d',
@@ -339,7 +339,7 @@ function new_fb_is_user_connected() {
     global $wpdb;
     $current_user = wp_get_current_user();
     $ID           = $wpdb->get_var($wpdb->prepare('
-    SELECT identifier FROM ' . $wpdb->prefix . 'social_users WHERE type = "fb" AND ID = "%d"
+    SELECT identifier FROM ' . $wpdb->prefix . 'social_users WHERE type = "config" AND ID = "%d"
   ', $current_user->ID));
     if ($ID === NULL) return false;
 

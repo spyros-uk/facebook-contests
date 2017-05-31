@@ -163,7 +163,7 @@ class Facebook extends BaseFacebook
   }
 
   protected function constructSessionVariableName($key) {
-    $parts = array('fb', $this->getAppId(), $key);
+    $parts = array('config', $this->getAppId(), $key);
     if ($this->sharedSessionID) {
       array_unshift($parts, $this->sharedSessionID);
     }

@@ -212,7 +212,7 @@ if (!class_exists('NextendFBSettings')) {
     <tr>
 		<th scope="row"><?php _e('Login button:', 'nextend-facebook-connect'); ?></th>
 		<td>
-      <?php if (!isset($nextend_fb_connect['fb_login_button'])) $nextend_fb_connect['fb_login_button'] = '<div class="new-fb-btn new-fb-1 new-fb-default-anim"><div class="new-fb-1-1"><div class="new-fb-1-1-1">CONNECT WITH</div></div></div>'; ?>
+      <?php if (!isset($nextend_fb_connect['fb_login_button'])) $nextend_fb_connect['fb_login_button'] = '<div class="new-config-btn new-config-1 new-config-default-anim"><div class="new-config-1-1"><div class="new-config-1-1-1">CONNECT WITH</div></div></div>'; ?>
             <textarea cols="83" rows="3" name="fb_login_button"><?php echo esc_html($nextend_fb_connect['fb_login_button']); ?></textarea>
 		</td>
 		</tr>
@@ -220,7 +220,7 @@ if (!class_exists('NextendFBSettings')) {
     <tr>
 		<th scope="row"><?php _e('Link account button:', 'nextend-facebook-connect'); ?></th>
 		<td>
-      <?php if (!isset($nextend_fb_connect['fb_link_button'])) $nextend_fb_connect['fb_link_button'] = '<div class="new-fb-btn new-fb-1 new-fb-default-anim"><div class="new-fb-1-1"><div class="new-fb-1-1-1">LINK ACCOUNT TO</div></div></div>'; ?>
+      <?php if (!isset($nextend_fb_connect['fb_link_button'])) $nextend_fb_connect['fb_link_button'] = '<div class="new-config-btn new-config-1 new-config-default-anim"><div class="new-config-1-1"><div class="new-config-1-1-1">LINK ACCOUNT TO</div></div></div>'; ?>
             <textarea cols="83" rows="3" name="fb_link_button"><?php echo esc_html($nextend_fb_connect['fb_link_button']); ?></textarea>
 		</td>
 		</tr>
@@ -228,7 +228,7 @@ if (!class_exists('NextendFBSettings')) {
     <tr>
 		<th scope="row"><?php _e('Unlink account button:', 'nextend-facebook-connect'); ?></th>
 		<td>
-      <?php if (!isset($nextend_fb_connect['fb_unlink_button'])) $nextend_fb_connect['fb_unlink_button'] = '<div class="new-fb-btn new-fb-1 new-fb-default-anim"><div class="new-fb-1-1"><div class="new-fb-1-1-1">UNLINK ACCOUNT</div></div></div>'; ?>
+      <?php if (!isset($nextend_fb_connect['fb_unlink_button'])) $nextend_fb_connect['fb_unlink_button'] = '<div class="new-config-btn new-config-1 new-config-default-anim"><div class="new-config-1-1"><div class="new-config-1-1-1">UNLINK ACCOUNT</div></div></div>'; ?>
             <textarea cols="83" rows="3" name="fb_unlink_button"><?php echo esc_html($nextend_fb_connect['fb_unlink_button']); ?></textarea>
 		</td>
 		</tr>

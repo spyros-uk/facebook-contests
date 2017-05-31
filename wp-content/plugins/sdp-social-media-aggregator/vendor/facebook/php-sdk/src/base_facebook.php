@@ -1235,7 +1235,7 @@ abstract class BaseFacebook
 
     $query = '';
     if (!empty($parts['query'])) {
-      // drop known fb params
+      // drop known config params
       $params = explode('&', $parts['query']);
       $retained_params = array();
       foreach ($params as $param) {
