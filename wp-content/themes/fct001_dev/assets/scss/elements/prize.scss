@@ -50,9 +50,20 @@
 
 }
 
-.prize__gallery-item {
-  width: 150px;
-  height: auto;
+.prize__description {
+  margin-bottom: 15px;
+}
+
+.prize__gallery-item-link {
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.prize__gallery-item-image {
+  border-radius: 12px;
+  width: 80px;
+  height: 80px;
 }
 
 .prize__likes {

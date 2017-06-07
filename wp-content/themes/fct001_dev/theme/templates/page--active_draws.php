@@ -83,18 +83,19 @@ $contests = get_posts($args);
                                 <div class="prize__description">
                                     <?php echo $contest->post_content ?>
                                 </div>
-                                <div class="prize__gallery">
-                                    <?php foreach ($gallery as $gallery_item)
-                                        SDP_Image::picture(
-                                            $gallery_item['ID'],
-                                            'contest_background_small',
-                                            array(
-                                                'contest_background_medium' => '(min-width: 600px)',
-                                                'contest_background_large' => '(min-width: 1024px)'),
-                                            array(
-                                                'class' => 'prize__gallery-item'
-                                            ));
+                                <div class="prize__gallery" data-popup-gallery>
+                                    <?php foreach ($gallery as $gallery_item):
+                                        $src_thumb = wp_get_attachment_image_src( $gallery_item['ID'])[0];
+                                        $src_large = wp_get_attachment_image_src( $gallery_item['ID'], 'contest_background_large')[0];
                                     ?>
+                                        <a href="<?php echo $src_large; ?>"
+                                           data-thumbnail-url="<?php echo $src_thumb; ?>"
+                                           class="prize__gallery-item-link">
+                                            <img src="<?php echo $src_thumb; ?>"
+                                                 class="prize__gallery-item-image"
+                                                 alt="">
+                                        </a>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
 
