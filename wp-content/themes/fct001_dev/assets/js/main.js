@@ -6,13 +6,9 @@
  */
 import './vendor/webpack.publicPath';
 
-/**
- * Your theme's js starts
- * here...
- */
 
-// silly example:
-import obj from './scripts/example';
+// Vendor files:
+import './vendor/jquery.magnific-popup.js';
 
-/* eslint no-console: 0 */
-console.log(obj);
+// Scripts:
+import './scripts/popup';
