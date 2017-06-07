@@ -59,6 +59,7 @@
 @import "vendor/normalize";
 @import "vendor/polyfill.object-fit";
 @import "vendor/utility-classes";
+@import "vendor/magnific-popup/main";
 
 
 
@@ -74,3 +75,10 @@
 @import "elements/button";
 @import "elements/hero-content";
 @import "elements/prize";
+
+
+/**
+ * Overrides
+ */
+
+@import "overrides/magnific";
