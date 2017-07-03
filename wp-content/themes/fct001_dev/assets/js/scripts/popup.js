@@ -20,12 +20,6 @@ function initPopup(galleries) {
     });
 }
 
-function getImageSources(images) {
-    Array.from(images).forEach(image => {
-        console.log(image);
-    });
-}
-
 /*
 .magnificPopup({
     delegate: 'a',
