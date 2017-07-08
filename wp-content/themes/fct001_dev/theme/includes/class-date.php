@@ -4,39 +4,41 @@
  * Helpers to manipulate date objects
  */
 
-
-/**
- * Class SDP_BEM
- *
- */
 class SDP_DATE {
-    private $SECONDS;
-    private $MINUTE;
-    private $HOUR;
-    private $DAY;
 
-    public function __construct() {
-        $this->SECONDS = 1;
-        $this->MINUTE = 60;
-        $this->HOUR = 60 * $this->MINUTE;
-        $this->DAY = 24 * $this->HOUR;
+    static function get_time_contants() {
+        return (object) Array(
+            'second'   => 1,
+            'minute'   => 60,
+            'hour'     => 3600,
+            'day'     => 86400,
+        );
     }
 
     // Date format here must match the date format of ACF
-    public static function get_date_diff($date) {
+    static function get_date_diff($date) {
         $start_date = strtotime($date);
         $current_date = strtotime(date('Y-m-d H:i:s'));
         return $start_date - $current_date;
     }
 
-    public function get_remaining_time_with_units($date) {
+    public static function is_outdated($date) {
+        return self::get_date_diff($date) > 0;
+    }
+
+    public static function is_not_outdated($date) {
+        return self::get_date_diff($date) > 0;
+    }
+
+    public static function get_remaining_time_with_units($date) {
+        $time_constants = self::get_time_contants();
         $time_diff = self::get_date_diff($date);
 
-        if (floor($time_diff / $this->DAY) > 0) {
+        if (floor($time_diff / $time_constants->day) > 0) {
             $remaining_time = self::get_remaining_time_in_days($time_diff);
-        } elseif (floor($time_diff / $this->HOUR)) {
+        } elseif (floor($time_diff / $time_constants->day)) {
             $remaining_time = self::get_remaining_time_in_hours($time_diff);
-        } elseif (floor($time_diff / $this->MINUTE)) {
+        } elseif (floor($time_diff / $time_constants->hours)) {
             $remaining_time = self::get_remaining_time_in_minutes($time_diff);
         } else {
             $remaining_time = self::get_remaining_time_in_seconds($time_diff);
@@ -45,26 +47,26 @@ class SDP_DATE {
         return $remaining_time;
     }
 
-    public function get_remaining_time_in_days($time) {
-        $rem_time = floor($time / $this->DAY );
+    static function get_remaining_time_in_days($time) {
+        $rem_time = floor($time / self::get_time_contants()->day );
         $units = $rem_time > 1 ? 'days' : 'day';
         return (object) Array('time' => $rem_time, 'units' => $units);
     }
 
-    public function get_remaining_time_in_hours($time) {
-        $rem_time = floor($time / $this->HOUR );
+    static function get_remaining_time_in_hours($time) {
+        $rem_time = floor($time / self::get_time_contants()->hour);
         $units = $rem_time > 1 ? 'hours' : 'hours';
         return (object) Array('time' => $rem_time, 'units' => $units);
     }
 
-    public function get_remaining_time_in_minutes($time) {
-        $rem_time = floor($time / $this->MINUTE );
+    static function get_remaining_time_in_minutes($time) {
+        $rem_time = floor($time / self::get_time_contants()->minute );
         $units = $rem_time > 1 ? 'minutes' : 'minute';
         return (object) Array('time' => $rem_time, 'units' => $units);
     }
 
-    public function get_remaining_time_in_seconds($time) {
-        $rem_time = floor($time / $this->SECONDS );
+    static function get_remaining_time_in_seconds($time) {
+        $rem_time = floor($time / self::get_time_contants()->second );
         $units = $rem_time > 1 ? 'seconds' : 'second';
         return (object) Array('time' => $rem_time, 'units' => $units);
     }

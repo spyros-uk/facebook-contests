@@ -45,9 +45,8 @@ $contests = get_posts($args);
         <?php foreach ($contests as $contest) :
             $image_id = get_post_thumbnail_id( $contest->ID );
             $start_date = get_field('start_date', $contest->ID);
-            $is_draw_active = SDP_DRAWS::is_draw_active($start_date);
-            $dateClass = new SDP_DATE();
-            $remaining_full_time = $dateClass->get_remaining_time_with_units($start_date);
+            $is_draw_active = SDP_DATE::is_not_outdated($start_date);
+            $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
 
                 if ($is_draw_active) :
                     $gallery = get_field('gallery', $contest->ID); ?>
