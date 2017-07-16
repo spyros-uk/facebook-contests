@@ -26,6 +26,7 @@
 // styling utilities
 @import "helpers/mixins/fit";
 @import "helpers/mixins/list";
+@import "helpers/mixins/link";
 @import "helpers/mixins/reset";
 @import "helpers/mixins/clearfix";
 @import "helpers/mixins/nocollapse";
@@ -75,6 +76,7 @@
 @import "elements/button";
 @import "elements/hero-content";
 @import "elements/prize";
+@import "elements/footer";
 
 
 /**

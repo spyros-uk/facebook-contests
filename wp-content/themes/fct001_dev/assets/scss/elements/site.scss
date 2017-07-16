@@ -44,14 +44,16 @@
 	position: relative;
 	left: 50%;
 	max-width: $d_container_site_max;
+	min-height: 88vh;
 	transform: translateX(-50%);
 
 	@include bp( $b_laptop_m ) {
 	    padding-top: 70px;
+		padding-bottom: 40px;
 	}
 
 	@include bp( $b_desktop ) {
-		padding: 10px;
+		padding-bottom: 75px;
 	}
 
 	a {

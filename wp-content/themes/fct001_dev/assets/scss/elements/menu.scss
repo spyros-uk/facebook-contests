@@ -1,4 +1,4 @@
-.main-menu {
+.primary-menu {
   font-family: $fa_text_cta;
 
   @include bp($b_laptop_m) {
@@ -6,12 +6,12 @@
   }
 }
 
-.main-menu__list {
+.primary-menu__list {
   margin: 0;
   padding: 0;
 }
 
-.main-menu__item {
+.primary-menu__item {
   display: inline-block;
   position: relative;
 
@@ -35,41 +35,44 @@
   }
 }
 
-.main-menu__link {
+.primary-menu__link {
   position: relative;
   color: $ca_txt_header;
 
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 3px;
-    right: -60px;
-    border-radius: 3px;
-    width: 60px;
-    height: 1px;
+  @include link;
+}
 
-    transform: scale(0);
-    transition: transform .4s ease;
-    transform-origin: 40% 0;
 
-    background-color: $ca_txt_header;
+.footer-menu__item {
+  @include bp( $b_tablet_m ) {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
 
-    @include bp( $b_tablet_m ) {
-      bottom: -2px;
-      left: 0;
-      width: 100%;
+    &:first-child:after {
+      content: '//';
+      position: absolute;
+      top: 0;
+      right: -16px;
+
+      color: $ca_txt_cta;
     }
   }
+}
 
-  &:hover {
-    &:before {
-      transform: scale(1);
-    }
-  }
+.footer-menu__list {
+  margin: 0;
+  padding: 0;
+}
 
-  .main-menu__item--current & {
-    &:before {
-      transform: scale(1);
-    }
+.footer-menu__link {
+  position: relative;
+  color: $ca_txt_header;
+
+  @include link;
+
+  &:first-child {
+    display: inline-block;
+    margin-bottom: 10px;
   }
 }

@@ -1,0 +1,35 @@
+@mixin link {
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    right: -60px;
+    border-radius: 3px;
+    width: 60px;
+    height: 1px;
+
+    transform: scale(0);
+    transition: transform .4s ease;
+    transform-origin: 40% 0;
+
+    background-color: $ca_txt_header;
+
+    @include bp( $b_tablet_m ) {
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &:hover {
+    &:before {
+      transform: scale(1);
+    }
+  }
+
+  .primary-menu__item--current & {
+    &:before {
+      transform: scale(1);
+    }
+  }
+}
