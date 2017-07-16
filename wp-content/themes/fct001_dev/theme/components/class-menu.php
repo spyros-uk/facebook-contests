@@ -4,25 +4,7 @@
  * Class Component_Header
  *
  */
-class Component_Header {
-
-    /**
-     * Renders the header
-     * according to specified type
-     *
-     * @param $header_type
-     * @return *
-     */
-
-    public static function the_header ($header_type) {
-        ob_start(); ?>
-
-        <header class="header">
-            <?php  self::the_menu($header_type); ?>
-        </header>
-
-        <?php return ob_get_clean();
-    }
+class Component_Menu {
 
     /**
      * Renders the nav menu

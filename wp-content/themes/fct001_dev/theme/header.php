@@ -27,7 +27,7 @@
 	<?php wp_head(); ?>
 
     <?php echo Component_Favicon::the_favicon(); ?>
-    <?php echo Component_Fb::include_fb_sdk(); ?>
+    <?php // echo Component_Fb::include_fb_sdk(); ?>
 </head>
 <body class="site__body">
 <?php // <body> closes in footer.php ?>
@@ -37,7 +37,9 @@
 <?php // common header content goes here ?>
 
 <?php
-    if (is_user_logged_in()) {
-        echo Component_Header::the_header('primary');
-    }
+    if (is_user_logged_in()) : ?>
+        <header class="header">
+            <?php  Component_Menu::the_menu('primary'); ?>
+        </header>
+    <?php endif;
 ?>

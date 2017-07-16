@@ -7,9 +7,9 @@
 ?>
 
 
-<?php // common footer content goes here ?>
-
-
+<footer class="footer">
+    <?php  Component_Menu::the_menu('footer'); ?>
+</footer>
 
 <?php wp_footer(); ?>
 
