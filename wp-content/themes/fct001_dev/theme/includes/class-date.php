@@ -8,10 +8,10 @@ class SDP_DATE {
 
     static function get_time_contants() {
         return (object) Array(
-            'second'   => 1,
-            'minute'   => 60,
-            'hour'     => 3600,
-            'day'     => 86400,
+            'second' => 1,
+            'minute' => 60,
+            'hour'   => 3600,
+            'day'    => 86400,
         );
     }
 
