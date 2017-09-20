@@ -162,6 +162,11 @@ function new_fb_login_action() {
 
     if (isset($_REQUEST['code'])) {
         $helper = $fb->getRedirectLoginHelper();
+
+        if (isset($_GET['state'])) {
+            $helper->getPersistentDataHandler()->set('state', $_GET['state']);
+        }
+
         try {
             $accessToken = $helper->getAccessToken(new_fb_login_url());
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
