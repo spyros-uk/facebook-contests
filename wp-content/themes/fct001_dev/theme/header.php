@@ -27,7 +27,7 @@
 	<?php wp_head(); ?>
 
     <?php echo Component_Favicon::the_favicon(); ?>
-    <?php // echo Component_Fb::include_fb_sdk(); ?>
+    <?php echo Component_Fb::include_fb_sdk(); ?>
 </head>
 <body class="site__body">
 <?php // <body> closes in footer.php ?>

@@ -100,7 +100,14 @@ $contests = get_posts($args);
                             <div class="prize__footer">
                                 <button class="prize__more"></button>
                                 <div class="prize__likes">
-                                    136 Likes
+                                    <div class="fb-like"
+                                         data-href="<?php the_permalink($contest->ID); ?>"
+                                         data-layout="button"
+                                         data-action="like"
+                                         data-size="small"
+                                         data-show-faces="true"
+                                         data-share="true">
+                                    </div>
                                 </div>
                             </div>
                         </div>
