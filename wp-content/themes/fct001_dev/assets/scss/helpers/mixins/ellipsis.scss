@@ -1,0 +1,28 @@
+/* ---------------------------
+	Ellipsis Mixin
+---------------------------- */
+
+/**
+ * Uses ellipsis overflow
+ * when reducing the lines of a text
+ *
+ * @param {Value} $font-size - Number + units
+ * @param {Value} $line-height - Number | Number + units
+ * @param {Value} $lines-to-show - Number
+ */
+
+@mixin ellipsis($font-size: 12px, $line-height: 1, $lines-to-show: 3) {
+  $height: $font-size * $line-height * $lines-to-show;
+
+  display: -webkit-box;
+  position: relative;
+  height: $height;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+
+  font-size: $font-size;
+  line-height: $line-height;
+}

@@ -34,7 +34,7 @@ $contests = get_posts($args);
 ?>
 
 
-<main class="contest__list">
+<main class="contest-list">
 
     <?php foreach ($contests as $contest) :
         $image_id = get_post_thumbnail_id( $contest->ID );
@@ -44,24 +44,26 @@ $contests = get_posts($args);
 
         if ($is_draw_active) :
             $gallery = get_field('gallery', $contest->ID); ?>
-            <section class="contest">
-                <h2 class="contest__title">
-                    <?php echo $contest->post_title; ?>
-                </h2>
-                <div class="contest__details">
-                    <?php echo $contest->post_content ?>
+            <section class="contest-list__item">
+                <div class="contest-list-item__wrapper">
+                    <h2 class="contest-list-item__title">
+                        <?php echo $contest->post_title; ?>
+                    </h2>
+                    <div class="contest-list-item__details">
+                        <?php echo $contest->post_content ?>
+                    </div>
+                    <?php
+                    SDP_Image::background(
+                        $image_id,
+                        'contest_background_small',
+                        array(
+                            'contest_background_medium' => '(min-width: 600px)',
+                            'contest_background_large' => '(min-width: 1024px)'),
+                        array(
+                            'class' => 'contest-list-item__background'
+                        ));
+                    ?>
                 </div>
-                <?php
-                SDP_Image::background(
-                    $image_id,
-                    'contest_background_small',
-                    array(
-                        'contest_background_medium' => '(min-width: 600px)',
-                        'contest_background_large' => '(min-width: 1024px)'),
-                    array(
-                        'class' => 'contest__background'
-                    ));
-                ?>
             </section>
         <?php endif; ?>
     <?php endforeach; ?>

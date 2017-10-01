@@ -59,13 +59,10 @@
 	a {
 		text-decoration: none;
 	}
-}
 
-.site__main {
+	&--fb {
+		position: relative;
 
-	&--facebook {
-		position: fixed;
-		width: 100vw;
-		max-width: $d_container_fb_width;
+		z-index: $z_normal;
 	}
 }
