@@ -1,12 +1,13 @@
 <?php
 /**
- * Template Name: Active Draws
+ * Template Name: Active Contests
  */
 ?>
 
 <?php get_header(); ?>
 
 <?php
+
 $page_object = get_queried_object();
 
 $args = array(

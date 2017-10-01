@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Inactive Draws
+ * Template Name: Expired Contests
  */
 ?>
 
