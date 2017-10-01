@@ -1,0 +1,40 @@
+.contest__list {
+
+}
+
+.contest {
+  position: relative;
+}
+
+.contest__title {
+
+}
+
+.contest__details {
+
+}
+
+.contest__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  z-index: $z_behind_scenes;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: .4;
+    background-color: $c_black;
+  }
+}

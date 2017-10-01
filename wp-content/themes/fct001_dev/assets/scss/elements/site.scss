@@ -60,3 +60,12 @@
 		text-decoration: none;
 	}
 }
+
+.site__main {
+
+	&--facebook {
+		position: fixed;
+		width: 100vw;
+		max-width: $d_container_fb_width;
+	}
+}
