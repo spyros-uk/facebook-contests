@@ -6,6 +6,8 @@
  */
 ?>
 
+<body class="site__body--fb">
+
 <?php
 $static_header_path = __DIR__ . DIRECTORY_SEPARATOR . 'static-components' . DIRECTORY_SEPARATOR . 'header.php';
 
