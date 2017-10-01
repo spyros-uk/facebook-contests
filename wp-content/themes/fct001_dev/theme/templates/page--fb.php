@@ -49,9 +49,27 @@ $contests = get_posts($args);
                     <h2 class="contest-list-item__title">
                         <?php echo $contest->post_title; ?>
                     </h2>
+                    <div class="pontest-list-item__remaining-time">
+                                    <span class="pontest-list-item__time-value">
+                                        <?php echo $remaining_full_time->time ?>
+                                    </span>
+                        <span class="pontest-list-item__time-units">
+                                        <?php echo $remaining_full_time->units ?>
+                                    </span>
+                    </div>
                     <div class="contest-list-item__details">
                         <?php echo $contest->post_content ?>
                     </div>
+
+                    <div class="fb-like"
+                         data-href="<?php the_permalink($contest->ID); ?>"
+                         data-layout="button"
+                         data-action="like"
+                         data-size="large"
+                         data-show-faces="true"
+                         data-share="false">
+                    </div>
+
                     <?php
                     SDP_Image::background(
                         $image_id,
