@@ -7,6 +7,7 @@
 <?php get_header(); ?>
 
 <?php
+// TODO: Filter posts based on author (logged=in user is the author when not admin)
 $page_object = get_queried_object();
 
 $args = array(
@@ -30,6 +31,7 @@ $args = array(
 );
 
 $contests = get_posts($args);
+// TODO: Implement after expiration functionality (Get winner's info and send email?)
 ?>
 
 <main class="site__main">
@@ -45,9 +47,9 @@ $contests = get_posts($args);
         <?php foreach ($contests as $contest) :
             $image_id = get_post_thumbnail_id( $contest->ID );
             $start_date = get_field('start_date', $contest->ID);
-            $is_draw_active = SDP_DRAWS::is_draw_active($start_date);
-            $dateClass = new SDP_DATE();
-            $remaining_full_time = $dateClass->get_remaining_time_with_units($start_date);
+            $is_draw_active = SDP_DATE::is_not_outdated($start_date);
+            $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
+            $winner = get_field('winner', $contest->ID);
 
             if (!$is_draw_active) :
                 $gallery = get_field('gallery', $contest->ID); ?>
@@ -68,14 +70,6 @@ $contests = get_posts($args);
                             <h2 class="prize__title">
                                 <?php echo $contest->post_title; ?>
                             </h2>
-                            <div class="prize__time-info">
-                                    <span class="prize__time-value">
-                                        <?php echo $remaining_full_time->time ?>
-                                    </span>
-                                <span class="prize__time-units">
-                                        <?php echo $remaining_full_time->units ?>
-                                    </span>
-                            </div>
                         </div>
 
                         <div class="prize__body">
@@ -99,9 +93,8 @@ $contests = get_posts($args);
                         </div>
 
                         <div class="prize__footer">
-                            <button class="prize__more"></button>
-                            <div class="prize__likes">
-                                136 Likes
+                            <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID)?>">
+                                won by John Smith
                             </div>
                         </div>
                     </div>

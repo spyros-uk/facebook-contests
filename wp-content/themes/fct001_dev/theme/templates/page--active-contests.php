@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 
 <?php
-
+// TODO: Filter posts based on author (logged=in user is the author when not admin)
 $page_object = get_queried_object();
 
 $args = array(
@@ -99,16 +99,8 @@ $contests = get_posts($args);
                             </div>
 
                             <div class="prize__footer">
-                                <button class="prize__more"></button>
-                                <div class="prize__likes">
-                                    <div class="fb-like"
-                                         data-href="<?php the_permalink($contest->ID); ?>"
-                                         data-layout="button"
-                                         data-action="like"
-                                         data-size="small"
-                                         data-show-faces="true"
-                                         data-share="true">
-                                    </div>
+                                <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID)?>">
+                                    # Likes
                                 </div>
                             </div>
                         </div>
