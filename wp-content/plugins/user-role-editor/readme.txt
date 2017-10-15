@@ -3,8 +3,8 @@ Contributors: shinephp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=vladimir%40shinephp%2ecom&lc=RU&item_name=ShinePHP%2ecom&item_number=User%20Role%20Editor%20WordPress%20plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: user, role, editor, security, access, permission, capability
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 4.35
+Tested up to: 4.8.2
+Stable tag: 4.36.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,29 @@ https://translate.wordpress.org/projects/wp-plugins/user-role-editor/
 
 
 == Changelog =
+
+= [4.36.1] 02.10.2017 =
+* Update: Direct access to the global $current_user variable was excluded. Current user data is initialized via WordPress core functions wp_get_current_user() or get_current_user_id().
+
+= [4.36] 19.09.2017 =
+* New: It's possible to set any URE's option value programmatically: use custom filter 'ure_get_option_<option_name>'. It takes a single parameter with current/default value for required options.
+  Full list of User Role Editor options is available here: https://www.role-editor.com/documentation/options-list
+* Update: Users page - Grant Roles. It's possible to change just "Other roles" for multiple users and leave their primary roles untouched. Just leave a "Primary role" field empty. If you select the "- No role for this site -" option from a "Primary role" drop-down list, plugin will revoke all roles from the selected users.
+* Update: Options page screen help text was updated.
+* Fix: Additional (other) default roles set at URE's settings page are not granted to a new user now, if they were deselected at a 'Add New User' page. 
+
+= [4.35.3] 20.07.2017 =
+* Fix: Multiple roles assignment (including default roles) did not work at "Users->Add New" new-user.php (contexts: add-existing-user, add-new-user) page for WordPress multisite.
+
+= [4.35.2] 18.07.2017 =
+* Fix: Multiple default roles (if defined at URE's settings) are selected automatically at new-user.php (context: add-new-user) page.
+* Update: Code enhancement for protection of users with 'administrator' role from each other. Current user can see his own record and edit own profile.
+
+= [4.35.1] 10.07.2017 =
+* Fix: "Grant Roles" button at the bottom of "Users" page did not work as had the same ID as a similar button at the top of this page.
+* Update: when bbPress plugin is active, "Grant Roles" does not revoke bbPress role granted to user anymore.
+* Fix: The same ID "move_from_no_role" and "move_from_no_role_dialog" were included twice to the "Users" page.
+
 = [4.35] 11.06.2017 =
 * Update: Bulk capabilities selection checkbox is not shown for 'administrator' role for single site WP, and is shown if current user is superadmin for multisite WP. It was done to exclude sudden revoke of all capabilities from the 'administrator' role.
 * Update: Full copy of JQuery UI 1.11.4 custom theme CSS file (jquery-ui.css) was included.

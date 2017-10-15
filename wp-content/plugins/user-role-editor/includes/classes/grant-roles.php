@@ -10,6 +10,8 @@
  */
 
 class URE_Grant_Roles {
+
+    const NO_ROLE_FOR_THIS_SITE = 'no-role-for-this-site';
     
     private $lib = null;
     private static $counter = 0;
@@ -43,7 +45,7 @@ class URE_Grant_Roles {
         
         return true;
     }
-    // end of validate_users()
+    // end of validate_users()            
     
     
     private static function validate_roles($roles) {
@@ -52,7 +54,8 @@ class URE_Grant_Roles {
             return false;
         }
         
-        $editable_roles = get_editable_roles();
+        $lib = URE_Lib::get_instance();
+        $editable_roles = $lib->get_all_editable_roles();
         $valid_roles = array_keys($editable_roles);
         foreach($roles as $role) {
             if (!in_array($role, $valid_roles)) {
@@ -63,7 +66,7 @@ class URE_Grant_Roles {
         return true;        
     }
     // end of validate_roles()
-    
+        
     
     private static function grant_primary_role_to_user($user_id, $role) {
                         
@@ -71,13 +74,29 @@ class URE_Grant_Roles {
         if (empty($user)) {
             return;
         }
+                     
+        if ($role===self::NO_ROLE_FOR_THIS_SITE) {
+            $role = '';
+        }
+        $old_roles = $user->roles;  // Save currently granted roles to restore from them the bbPress roles later if there are any...
+        $user->set_role($role); 
         
-        $user->set_role($role);        
+        $lib = URE_Lib::get_instance();
+        $bbpress = $lib->get('bbpress');
+        if (empty($bbpress)) {
+            return;
+        }
+        
+        $bbp_roles = $bbpress->extract_bbp_roles($old_roles);
+        if (count($bbp_roles)>0) {  //  restore bbPress roles
+            foreach($bbp_roles as $role) {
+                $user->add_role($role);
+            }        
+        }        
         
     }
     // end of grant_primary_role_to_user()
-    
-    
+            
     
     private static function grant_other_roles_to_user($user_id, $roles) {
                         
@@ -87,14 +106,45 @@ class URE_Grant_Roles {
         }
         
         $primary_role = array_shift(array_values($user->roles));    // Get the 1st element from the roles array
+        $lib = URE_Lib::get_instance();
+        $bbpress = $lib->get('bbpress');
+        if (empty($bbpress)) {
+            $bbp_roles = array();
+        } else {
+            $bbp_roles = $bbpress->extract_bbp_roles($user->roles);
+        }
         $user->remove_all_caps();
-        $roles = array_merge(array($primary_role), $roles);
+        $roles = array_merge(array($primary_role), $bbp_roles, $roles);
         foreach($roles as $role) {
             $user->add_role($role);
         }
         
     }
     // end of grant_other_roles_to_user()
+    
+    
+    /**
+     * Decide if primary role should be granted or left as it is
+     * 
+     * @param string $primary_role
+     * @return boolean
+     */
+    private static function is_select_primary_role($primary_role) {
+        
+        if (empty($primary_role)) {
+            return false;   // Primary role was not selected by user, leave an older one
+        }
+        
+        $lib = URE_Lib::get_instance();
+        if ($lib->is_super_admin()) {
+            $select_primary_role = true;
+        } else {
+            $select_primary_role = apply_filters('ure_users_select_primary_role', true);
+        }
+        
+        return $select_primary_role;
+    }
+    // end of is_select_primary_role()
     
     
     public static function grant_roles() {
@@ -112,21 +162,16 @@ class URE_Grant_Roles {
 
 // Primary role       
         $primary_role = $_POST['primary_role'];        
-        if (!empty($primary_role) && !self::validate_roles(array($primary_role=>$primary_role))) {
+        if (!empty($primary_role) && ($primary_role!==self::NO_ROLE_FOR_THIS_SITE) && 
+            !self::validate_roles(array($primary_role=>$primary_role))) {
             $answer = array('result'=>'error', 'message'=>esc_html__('Invalid primary role', 'user-role-editor'));
             return $answer;
         }
-        
-        $lib = URE_Lib::get_instance();
-        $select_primary_role = apply_filters('ure_users_select_primary_role', true);
-        if ($select_primary_role  || $lib->is_super_admin()) {
-            foreach ($users as $user_id) {
+                
+        if (self::is_select_primary_role($primary_role)) {            
+            foreach ($users as $user_id) {                
                 self::grant_primary_role_to_user($user_id, $primary_role);
-            }
-            if (empty($primary_role)) { //  users don't have primary role, so they should not have any other roles - stop processing
-                $answer = array('result'=>'success', 'message'=>esc_html__('Users does not have role for this site', 'user-role-editor'));
-                return;
-            }
+            }            
         }
         
 // Other roles        
@@ -193,14 +238,14 @@ class URE_Grant_Roles {
 <?php            
         // print the full list of roles with the primary one selected.
         wp_dropdown_roles('');
-        echo '<option value="">' . esc_html__('&mdash; No role for this site &mdash;') . '</option>'. PHP_EOL;
+        echo '<option value="'. self::NO_ROLE_FOR_THIS_SITE .'">' . esc_html__('&mdash; No role for this site &mdash;') . '</option>'. PHP_EOL;
 ?>        
         </select>
         <hr/>
 <?php        
     }
     // end of select_primary_role_html()
-    
+            
     
     private function select_other_roles_html() {
 ?>        
@@ -211,8 +256,8 @@ class URE_Grant_Roles {
 ?>        
         </span><br>
 <?php        
-        $show_admin_role = $this->lib->show_admin_role_allowed();
-        $roles = get_editable_roles();
+        $show_admin_role = $this->lib->show_admin_role_allowed();        
+        $roles = $this->lib->get_all_editable_roles();        
         foreach ($roles as $role_id => $role) {
             if (!$show_admin_role && $role_id=='administrator') {
                 continue;
@@ -235,11 +280,12 @@ class URE_Grant_Roles {
         if (!current_user_can('edit_users')) {
             return;
         }
+        $button_number =  (self::$counter>0) ? '_2': '';
 ?>        
-            &nbsp;&nbsp;<input type="button" name="ure_grant_roles" id="ure_grant_roles" class="button"
+            &nbsp;&nbsp;<input type="button" name="ure_grant_roles<?php echo $button_number;?>" id="ure_grant_roles<?php echo $button_number;?>" class="button"
                         value="<?php esc_html_e('Grant Roles', 'user-role-editor');?>">
 <?php
-    if (self::$counter<1) {
+    if (self::$counter==0) {
 ?>
             <div id="ure_grant_roles_dialog" class="ure-dialog">
                 <div id="ure_grant_roles_content">
