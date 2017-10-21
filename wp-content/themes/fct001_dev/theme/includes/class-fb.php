@@ -1,6 +1,12 @@
 <?php
     class SDP_FB {
 
+        static function pluralize($word, $length) {
+            return $length > 1
+                ? "{$word}s"
+                : $word;
+        }
+
         static function get_open_graph_uri() {
             return 'https://graph.facebook.com';
         }
@@ -23,7 +29,7 @@
             return array_values($og_object)[0]['og_object']['id'];
         }
 
-        static function get_object_likes_count($url) {
+        static function get_object_likes_count_($url) {
             return sizeof(self::get_object_likes($url));
         }
 
@@ -39,7 +45,14 @@
         }
 
         public static function the_object_likes_count($url) {
-            echo self::get_object_likes($url);
+            echo self::get_object_likes($url)->count;
+        }
+
+        public static function get_object_likes_count_with_description($url) {
+            $likes_count = sizeof(self::get_object_likes($url));
+            $likes_desc = self::pluralize('like', $likes_count);
+
+            echo "$likes_count $likes_desc";
         }
     }
 ?>
