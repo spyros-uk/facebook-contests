@@ -99,8 +99,8 @@ $contests = get_posts($args);
                             </div>
 
                             <div class="prize__footer">
-                                <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID)?>">
-                                    # Likes
+                                <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID); ?>">
+                                    <?php SDP_FB::get_object_likes_count_with_description(get_the_permalink($contest->ID)); ?>
                                 </div>
                             </div>
                         </div>
