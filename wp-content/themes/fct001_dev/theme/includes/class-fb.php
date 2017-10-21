@@ -12,24 +12,34 @@
             return "$app_id|$app_secret";
         }
 
-        public function get_og_object($uri) {
-            // API call to https://graph.facebook.com/$uri
-            // Example: https://graph.facebook.com/?ids=https://fbcontests.co.uk/contest/travel-to-caribbeans/
+        static function get_og_object($url) {
+            $base_url = self::get_open_graph_uri();
+            $uri = "$base_url?ids=$url";
+
+            return SDP_API::GET($uri);
         }
 
-        public function get_og_object_id($og_object) {
-            return $og_object['og_object']['id'];
+        static function get_og_object_id($og_object) {
+            return array_values($og_object)[0]['og_object']['id'];
         }
 
-        public function get_object_likes($uri) {
-            // $og_object = get_og_object($uri);
-            // $obj_id = get_og_object_id($og_object);
-            // $access_token = get_access_token();
-            // $fb_og_uri = get_open_graph_uri();
-            // $url = $fb_og_uri/$obj_id/likes?access_token=$access_token;
+        static function get_object_likes_count($url) {
+            return sizeof(self::get_object_likes($url));
+        }
 
-            // API call to https://graph.facebook.com/v2.10/ (needs access token)
-            // return API->GET($url)['data'];
+        public static function get_object_likes($url) {
+            $og_object = self::get_og_object($url);
+            $obj_id = self::get_og_object_id($og_object);
+            $access_token = self::get_access_token();
+            $base_url = self::get_open_graph_uri();
+            $uri = "$base_url/$obj_id/likes?access_token=$access_token";
+            $likes = SDP_API::GET($uri)['data'];
+
+            return $likes;
+        }
+
+        public static function the_object_likes_count($url) {
+            echo self::get_object_likes($url);
         }
     }
 ?>
