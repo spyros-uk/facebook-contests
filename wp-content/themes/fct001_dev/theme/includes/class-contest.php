@@ -20,6 +20,18 @@ class SDP_CONTEST {
         return get_field('winner', $contest_id)[0];
     }
 
+    public static function is_winner_set($contest_id) {
+        $winner_data = self::get_winner($contest_id);
+        $is_winner = null;
+        foreach ($winner_data as $data) {
+            $is_winner = (
+                $data !== null &&
+                $data !== ''
+            );
+        }
+        return $is_winner;
+    }
+
     public static function set_winner($contest_id) {
         $nominees_list = self::get_nominees($contest_id);
         $winner = self::pick_winner($nominees_list);
