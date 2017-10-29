@@ -54,5 +54,14 @@
 
             echo "$likes_count $likes_desc";
         }
+
+        public static function get_user_data($user_id) {
+            $base_url = self::get_open_graph_uri();
+            $access_token = self::get_access_token();
+            $fields = 'fields=name,email';
+            $uri = "$base_url/$user_id??access_token=$access_token&$fields";
+
+            return SDP_API::GET($uri);
+        }
     }
 ?>

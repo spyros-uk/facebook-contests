@@ -1,31 +1,42 @@
 <?php
 
 class SDP_CONTEST {
-    public function get_winner($contest_id) {
-        // Select * FROM NOMINEES WHERE CONTEST_ID = $contest_id AND IS_WINNER = 1;
+
+    public static function get_nominees($contest_id) {
+        $permalink = get_the_permalink($contest_id);
+        $contest_likes = SDP_FB::get_object_likes($permalink);
+
+        return $contest_likes;
     }
 
-    public function set_winner($contest_id, $nominee_id) {
-        // UPDATE NOMINEES SET IS_WINNER = 1 WHERE CONTEST_ID = $contest_id AND NOMINEE_ID = $nominee_id;
+    public static function pick_winner($nominees_list) {
+        $rand_keys = array_rand($nominees_list, 1);
+        $winner_fb_id = $nominees_list[$rand_keys[0]]->id;
+        $winner = SDP_FB::get_user_data($winner_fb_id);
+
+        return $winner;
     }
 
-    public function update_nominees() {
-        // uses get_object_likes to collect likes data
-        // Iterate over array of objects
-        // uses $wpdb to update the table for every entry
+    public static function get_winner($contest_id) {
+        return get_field('winner', $contest_id)[0];
     }
 
-    public function get_nominees($contest_id) {
-        // Uses $wpdb to get nominees
+    public static function set_winner($contest_id) {
+        $nominees_list = self::get_nominees($contest_id);
+        $winner = self::pick_winner($nominees_list);
+
+        $winner_data = array(
+            array(
+                "winner_fb_id"	=> $winner->id,
+                "winner_name"	=> $winner->name,
+                "winner_email"	=> $winner->email
+            )
+        );
+
+        update_field('winner', $winner_data, $contest_id);
     }
 
-    public function pick_winner($nominees_list) {
-        // Randomlly choose an entry from the array
-        // Uses $wpdb to se this randomly picked nominee
-        //
-    }
-
-    public function notify_winner() {
+    public static function notify_winner() {
 
     }
 }
