@@ -24,8 +24,7 @@ add_filter( 'login_headerurl', 'login_logo_url' ); // Add custom logo title
 
 add_filter( 'login_headertitle', 'login_logo_url_title' ); // Add custom logo title
 
-add_filter('acf/load_field/type=select', 'disable_winner_field');
-// add_action( 'acf/render_field/type=text', 'my_acf_load_field', 10, 1 );
+add_filter('acf/load_field/name=winner', 'disable_winner_field');
 
 // expose php variables to js. just uncomment line
 // below and see function theme_scripts_localize
@@ -426,10 +425,9 @@ if ( ! function_exists( 'theme_scripts_localize' ) ) {
  * @since 4.0.0
  */
 function disable_winner_field( $field ) {
-
-    if ($field['_name'] === 'winner') {
-        $field['disabled'] = 1;
-    }
+    if ($field['name'] === 'winner')
+        foreach ($field['sub_fields'] as $subfield)
+            $subfield['disabled'] = 1;
 
     return $field;
 }
