@@ -9,7 +9,7 @@
 <?php
 $page_object = get_queried_object();
 $current_user = wp_get_current_user();
-$is_admin = (is_user_logged_in() && $current_user->data->user_login === 'admin');
+$is_admin = (is_user_logged_in() && current_user_can('activate_plugins'));
 $author = $is_admin ? '' : $current_user->data->ID;
 
 $args = array(
