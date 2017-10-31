@@ -24,6 +24,8 @@ add_filter( 'login_headerurl', 'login_logo_url' ); // Add custom logo title
 
 add_filter( 'login_headertitle', 'login_logo_url_title' ); // Add custom logo title
 
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
 add_filter('acf/load_field/name=winner', 'disable_winner_field');
 
 // expose php variables to js. just uncomment line
@@ -416,6 +418,18 @@ if ( ! function_exists( 'theme_scripts_localize' ) ) {
 			'ajax'  => add_query_arg( $ajax_url_params, admin_url( 'admin-ajax.php' ) )
 		) );
 	}
+}
+
+/**
+ * Custom redirection
+ * after login
+ *
+ * @since 3.0.0
+ */
+if (! function_exists('my_login_redirect')) {
+    function my_login_redirect() {
+        return home_url();
+    }
 }
 
 /**
