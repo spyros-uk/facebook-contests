@@ -7,8 +7,10 @@
 <?php get_header(); ?>
 
 <?php
-// TODO: Filter posts based on author (logged=in user is the author when not admin)
 $page_object = get_queried_object();
+$current_user = wp_get_current_user();
+$is_admin = (is_user_logged_in() && $current_user->data->user_login === 'admin');
+$author = $is_admin ? '' : $current_user->data->ID;
 
 $args = array(
     'posts_per_page' => 10,
@@ -24,14 +26,13 @@ $args = array(
     'post_type' => 'fct_contest',
     'post_mime_type' => '',
     'post_parent' => '',
-    'author' => '',
+    'author' => $author,
     'author_name' => '',
     'post_status' => 'publish',
     'suppress_filters' => true
 );
 
 $contests = get_posts($args);
-// TODO: Implement after expiration functionality (Get winner's info and send email?)
 ?>
 
 <main class="site__main">
@@ -49,7 +50,11 @@ $contests = get_posts($args);
             $start_date = get_field('start_date', $contest->ID);
             $is_draw_active = SDP_DATE::is_not_outdated($start_date);
             $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
-            $winner = get_field('winner', $contest->ID);
+
+            if (!SDP_CONTEST::is_winner_set($contest) && !$is_draw_active)
+                SDP_CONTEST::set_winner($contest);
+
+            $winner = SDP_CONTEST::get_winner($contest);
 
             if (!$is_draw_active) :
                 $gallery = get_field('gallery', $contest->ID); ?>
@@ -94,7 +99,7 @@ $contests = get_posts($args);
 
                         <div class="prize__footer">
                             <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID)?>">
-                                won by John Smith
+                                winner: <?php echo $winner['winner_name']; ?>
                             </div>
                         </div>
                     </div>
