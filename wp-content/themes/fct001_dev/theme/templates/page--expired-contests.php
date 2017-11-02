@@ -57,7 +57,7 @@ $contests = get_posts($args);
             $winner = SDP_CONTEST::get_winner($contest);
 
             if (!$is_draw_active) :
-                $gallery = get_field('gallery', $contest->ID); ?>
+                $gallery_data = get_field('gallery', $contest->ID); ?>
                 <div class="prize-list__item">
                     <div class="prize">
                         <?php
@@ -73,7 +73,9 @@ $contests = get_posts($args);
                         ?>
                         <div class="prize__header">
                             <h2 class="prize__title">
-                                <?php echo $contest->post_title; ?>
+                                <a href="<?php the_permalink($contest->ID) ?>">
+                                    <?php echo $contest->post_title; ?>
+                                </a>
                             </h2>
                         </div>
 
@@ -81,20 +83,7 @@ $contests = get_posts($args);
                             <div class="prize__description">
                                 <?php echo $contest->post_content ?>
                             </div>
-                            <div class="prize__gallery" data-popup-gallery>
-                                <?php foreach ($gallery as $gallery_item):
-                                    $src_thumb = wp_get_attachment_image_src( $gallery_item['ID'])[0];
-                                    $src_large = wp_get_attachment_image_src( $gallery_item['ID'], 'contest_background_large')[0];
-                                    ?>
-                                    <a href="<?php echo $src_large; ?>"
-                                       data-thumbnail-url="<?php echo $src_thumb; ?>"
-                                       class="prize__gallery-item-link">
-                                        <img src="<?php echo $src_thumb; ?>"
-                                             class="prize__gallery-item-image"
-                                             alt="">
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
+                            <?php Component_Gallery::the_gallery($gallery_data) ?>
                         </div>
 
                         <div class="prize__footer">
