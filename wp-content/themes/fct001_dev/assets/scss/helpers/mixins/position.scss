@@ -1,0 +1,10 @@
+/*---------------------
+    Position Mixins
+---------------------*/
+
+@mixin bottom_right {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
