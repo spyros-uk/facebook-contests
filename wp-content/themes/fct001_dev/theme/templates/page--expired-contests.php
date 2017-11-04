@@ -46,7 +46,6 @@ $contests = get_posts($args);
 
     <section class="prize-list">
         <?php foreach ($contests as $contest) :
-            $image_id = get_post_thumbnail_id( $contest->ID );
             $start_date = get_field('start_date', $contest->ID);
             $is_draw_active = SDP_DATE::is_not_outdated($start_date);
             $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
@@ -60,20 +59,11 @@ $contests = get_posts($args);
                 $gallery_data = get_field('gallery', $contest->ID); ?>
                 <div class="prize-list__item">
                     <div class="prize">
-                        <?php
-                        SDP_Image::background(
-                            $image_id,
-                            'contest_background_small',
-                            array(
-                                'contest_background_medium' => '(min-width: 600px)',
-                                'contest_background_large' => '(min-width: 1024px)'),
-                            array(
-                                'class' => 'prize__background'
-                            ));
-                        ?>
+                        <?php Component_Prize::the_prize_background($contest); ?>
                         <div class="prize__header">
                             <h2 class="prize__title">
-                                <a href="<?php the_permalink($contest->ID) ?>">
+                                <a href="<?php the_permalink($contest->ID) ?>"
+                                   class="prize__link">
                                     <?php echo $contest->post_title; ?>
                                 </a>
                             </h2>
@@ -87,8 +77,11 @@ $contests = get_posts($args);
                         </div>
 
                         <div class="prize__footer">
-                            <div class="prize__likes" data-permalink="<?php the_permalink($contest->ID)?>">
-                                winner: <?php echo $winner['winner_name']; ?>
+                            <div class="prize__winner">
+                                <span>
+                                    Winner:
+                                </span>
+                                <?php echo $winner['winner_name']; ?>
                             </div>
                         </div>
                     </div>

@@ -15,8 +15,5 @@
 
   &--low-margin {
     margin-bottom: 5vh;
-    @include bp( $b_laptop_m ) {
-      margin-bottom: 10vh;
-    }
   }
 }

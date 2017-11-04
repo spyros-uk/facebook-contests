@@ -22,8 +22,18 @@
   margin-bottom: 8px;
 
   font-family: $fa_text_header;
-  color: $ca_txt_header;
   text-transform: uppercase;
+}
+
+.contest-list-item__link {
+  display: inline-block;
+  transition: transform .4s easing('easeIn');
+
+  color: $ca_txt_header;
+
+  &:hover {
+    transform: translateX(2%);
+  }
 }
 
 .pontest-list-item__remaining-time {

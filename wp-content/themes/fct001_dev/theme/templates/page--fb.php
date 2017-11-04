@@ -47,15 +47,18 @@ $contests = get_posts($args);
             <section class="contest-list__item">
                 <div class="contest-list-item__wrapper">
                     <h2 class="contest-list-item__title">
-                        <?php echo $contest->post_title; ?>
+                        <a href="<?php the_permalink($contest->ID) ?>"
+                           class="contest-list-item__link">
+                            <?php echo $contest->post_title; ?>
+                        </a>
                     </h2>
                     <div class="pontest-list-item__remaining-time">
-                                    <span class="pontest-list-item__time-value">
-                                        <?php echo $remaining_full_time->time ?>
-                                    </span>
+                        <span class="pontest-list-item__time-value">
+                            <?php echo $remaining_full_time->time ?>
+                        </span>
                         <span class="pontest-list-item__time-units">
-                                        <?php echo $remaining_full_time->units ?>
-                                    </span>
+                            <?php echo $remaining_full_time->units ?>
+                        </span>
                     </div>
                     <div class="contest-list-item__details">
                         <?php echo $contest->post_content ?>

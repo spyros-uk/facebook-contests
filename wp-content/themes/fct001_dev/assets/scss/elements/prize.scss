@@ -24,7 +24,7 @@
 
 .prize {
   position: relative;
-  border-radius: 12px;
+  border-radius: $d_radius;
   padding: 10px 10px 0 10px;
   height: 180px;
 
@@ -46,6 +46,17 @@
   margin: 0 0 5px 0;
 }
 
+.prize__link {
+  display: inline-block;
+  transition: transform .4s easing('easeIn');
+
+  color: $ca_txt_header;
+
+  &:hover {
+    transform: translateX(2%);
+  }
+}
+
 .prize__time-info {
 
 }
@@ -61,16 +72,25 @@
 }
 
 .prize__gallery-item-image {
-  border-radius: 12px;
+  border-radius: $d_radius;
   width: 80px;
   height: 80px;
 }
 
 .prize__likes {
-  display: inline-block;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  @include bottom_right;
+}
+
+.prize__winner {
+  @include bottom_right;
+
+  span {
+    padding-right: 3px;
+
+    font-family: $fa_text_cta;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
 
 .prize__more {
@@ -78,7 +98,7 @@
   width: 40px;
   height: 25px;
   border: 0;
-  border-radius: 0 12px 0 0;
+  border-radius: 0 $d_radius 0 0;
   outline: 0;
 
   @include bp($b_laptop_m) {
@@ -86,6 +106,14 @@
     bottom: 0;
     left: 0;
   }
+}
+
+.prize__featured-image {
+  position: relative;
+  margin-bottom: 40px;
+  border-radius: $d_radius;
+  width: 60%;
+  min-height: 200px;
 }
 
 .prize__background {
