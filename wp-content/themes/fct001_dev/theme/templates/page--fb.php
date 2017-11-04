@@ -48,6 +48,7 @@ $contests = get_posts($args);
                 <div class="contest-list-item__wrapper">
                     <h2 class="contest-list-item__title">
                         <a href="<?php the_permalink($contest->ID) ?>"
+                           target="_blank"
                            class="contest-list-item__link">
                             <?php echo $contest->post_title; ?>
                         </a>
