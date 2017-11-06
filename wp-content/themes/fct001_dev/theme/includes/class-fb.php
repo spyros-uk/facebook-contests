@@ -2,7 +2,7 @@
 class SDP_FB {
 
     static function pluralize($word, $length) {
-        return $length > 1
+        return $length > 1 || $length === 0
             ? "{$word}s"
             : $word;
     }
@@ -26,7 +26,13 @@ class SDP_FB {
     }
 
     static function get_og_object_id($og_object) {
-        return array_values($og_object)[0]['og_object']['id'];
+        return isset($og_object[0]['og_object'])
+            ? array_values($og_object)[0]['og_object']['id']
+            : null;
+    }
+
+    static function has_likes($obj_id) {
+        return $obj_id !== null;
     }
 
     static function get_object_likes_count_($url) {
@@ -34,12 +40,16 @@ class SDP_FB {
     }
 
     public static function get_object_likes($url) {
+        $likes = [];
         $og_object = self::get_og_object($url);
         $obj_id = self::get_og_object_id($og_object);
-        $access_token = self::get_access_token();
-        $base_url = self::get_open_graph_uri();
-        $uri = "$base_url/$obj_id/likes?access_token=$access_token";
-        $likes = SDP_API::GET($uri)['data'];
+
+        if (self::has_likes($obj_id)) {
+            $access_token = self::get_access_token();
+            $base_url = self::get_open_graph_uri();
+            $uri = "$base_url/$obj_id/likes?access_token=$access_token";
+            $likes = SDP_API::GET($uri)['data'];
+        }
 
         return $likes;
     }
@@ -49,7 +59,8 @@ class SDP_FB {
     }
 
     public static function get_object_likes_count_with_description($url) {
-        $likes_count = sizeof(self::get_object_likes($url));
+        $likes = self::get_object_likes($url);
+        $likes_count = empty($likes) ? 0 : sizeof($likes);
         $likes_desc = self::pluralize('like', $likes_count);
 
         echo "$likes_count $likes_desc";
