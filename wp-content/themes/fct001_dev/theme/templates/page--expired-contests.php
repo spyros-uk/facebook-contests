@@ -81,7 +81,7 @@ $contests = get_posts($args);
                                 <span>
                                     Winner:
                                 </span>
-                                <?php echo $winner['winner_name']; ?>
+                                <?php SDP_CONTEST::the_winner_name($contest); ?>
                             </div>
                         </div>
                     </div>
