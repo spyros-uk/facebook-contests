@@ -25,9 +25,12 @@ class SDP_FB {
         return SDP_API::GET($uri);
     }
 
-    static function get_og_object_id($og_object) {
-        return isset($og_object[0]['og_object'])
-            ? array_values($og_object)[0]['og_object']['id']
+    static function get_og_object_id($og_data) {
+        $og_data = reset($og_data);
+        $og_object = $og_data['og_object'];
+
+        return isset($og_object)
+            ? $og_object['id']
             : null;
     }
 
@@ -41,8 +44,8 @@ class SDP_FB {
 
     public static function get_object_likes($url) {
         $likes = [];
-        $og_object = self::get_og_object($url);
-        $obj_id = self::get_og_object_id($og_object);
+        $og_data = self::get_og_object($url);
+        $obj_id = self::get_og_object_id($og_data);
 
         if (self::has_likes($obj_id)) {
             $access_token = self::get_access_token();

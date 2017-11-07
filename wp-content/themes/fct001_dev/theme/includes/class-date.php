@@ -38,7 +38,7 @@ class SDP_DATE {
             $remaining_time = self::get_remaining_time_in_days($time_diff);
         } elseif (floor($time_diff / $time_constants->day)) {
             $remaining_time = self::get_remaining_time_in_hours($time_diff);
-        } elseif (floor($time_diff / $time_constants->hours)) {
+        } elseif (floor($time_diff / $time_constants->hour)) {
             $remaining_time = self::get_remaining_time_in_minutes($time_diff);
         } else {
             $remaining_time = self::get_remaining_time_in_seconds($time_diff);
