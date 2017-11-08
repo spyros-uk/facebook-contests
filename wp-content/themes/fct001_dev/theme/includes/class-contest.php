@@ -86,7 +86,7 @@ class SDP_CONTEST {
         if (!empty($winner_data)) {
             $winner = self::get_normalized_winner($winner_data);
             update_field('winner', $winner, $contest->ID);
-            self::notify_winner($winner_data, $contest);
+            self::notify_winner($winner, $contest);
         }
     }
 }
