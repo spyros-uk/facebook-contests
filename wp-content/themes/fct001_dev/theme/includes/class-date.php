@@ -16,29 +16,29 @@ class SDP_DATE {
     }
 
     // Date format here must match the date format of ACF
-    static function get_date_diff($date) {
-        $start_date = strtotime($date);
+    static function get_date_diff_in_seconds($date) {
+        $expiration_date = strtotime($date);
         $current_date = strtotime(date('Y-m-d H:i:s'));
-        return $start_date - $current_date;
+        return $expiration_date - $current_date;
     }
 
     public static function is_outdated($date) {
-        return self::get_date_diff($date) > 0;
+        return self::get_date_diff_in_seconds($date) > 0;
     }
 
     public static function is_not_outdated($date) {
-        return self::get_date_diff($date) > 0;
+        return self::get_date_diff_in_seconds($date) > 0;
     }
 
     public static function get_remaining_time_with_units($date) {
         $time_constants = self::get_time_contants();
-        $time_diff = self::get_date_diff($date);
+        $time_diff = self::get_date_diff_in_seconds($date);
 
         if (floor($time_diff / $time_constants->day) > 0) {
             $remaining_time = self::get_remaining_time_in_days($time_diff);
-        } elseif (floor($time_diff / $time_constants->day)) {
-            $remaining_time = self::get_remaining_time_in_hours($time_diff);
         } elseif (floor($time_diff / $time_constants->hour)) {
+            $remaining_time = self::get_remaining_time_in_hours($time_diff);
+        } elseif (floor($time_diff / $time_constants->minute)) {
             $remaining_time = self::get_remaining_time_in_minutes($time_diff);
         } else {
             $remaining_time = self::get_remaining_time_in_seconds($time_diff);

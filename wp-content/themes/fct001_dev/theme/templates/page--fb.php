@@ -38,9 +38,9 @@ $contests = get_posts($args);
 
     <?php foreach ($contests as $contest) :
         $image_id = get_post_thumbnail_id( $contest->ID );
-        $start_date = get_field('start_date', $contest->ID);
-        $is_draw_active = SDP_DATE::is_not_outdated($start_date);
-        $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
+        $expiration_date = get_field('expiration_date', $contest->ID);
+        $is_draw_active = SDP_DATE::is_not_outdated($expiration_date);
+        $remaining_full_time = SDP_DATE::get_remaining_time_with_units($expiration_date);
 
         if ($is_draw_active) :
             $gallery = get_field('gallery', $contest->ID); ?>

@@ -46,9 +46,9 @@ $contests = get_posts($args);
 
     <section class="prize-list">
         <?php foreach ($contests as $contest) :
-            $start_date = get_field('start_date', $contest->ID);
-            $is_draw_active = SDP_DATE::is_not_outdated($start_date);
-            $remaining_full_time = SDP_DATE::get_remaining_time_with_units($start_date);
+            $expiration_date = get_field('expiration_date', $contest->ID);
+            $is_draw_active = SDP_DATE::is_not_outdated($expiration_date);
+            $remaining_full_time = SDP_DATE::get_remaining_time_with_units($expiration_date);
 
             if (!SDP_CONTEST::is_winner_set($contest) && !$is_draw_active)
                 SDP_CONTEST::set_winner($contest);
