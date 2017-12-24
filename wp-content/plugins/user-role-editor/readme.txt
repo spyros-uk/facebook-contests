@@ -3,8 +3,8 @@ Contributors: shinephp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=vladimir%40shinephp%2ecom&lc=RU&item_name=ShinePHP%2ecom&item_number=User%20Role%20Editor%20WordPress%20plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: user, role, editor, security, access, permission, capability
 Requires at least: 4.0
-Tested up to: 4.9
-Stable tag: 4.37
+Tested up to: 4.9.1
+Stable tag: 4.39
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,7 @@ Do you need more functionality with quality support in a real time? Do you wish 
 <li>Per form users access management for Gravity Forms plugin.</li>
 <li>Shortcode to show enclosed content to the users with selected roles only.</li>
 <li>Posts and pages view restrictions for selected roles.</li>
+<li>Admin back-end pages permissions viewer</li>
 </ul>
 Pro version is advertisement free. Premium support is included.
 
@@ -78,6 +79,17 @@ https://translate.wordpress.org/projects/wp-plugins/user-role-editor/
 
 
 == Changelog =
+
+= [4.39] 19.12.2017 =
+* Update: Plugin settings management code moved to the separate URE_Settings class.
+* Update: 'create_posts', 'create_pages' user capabilities are not added by default to WordPress built-in capabilities groups as they are supported by the Pro version only.
+* Update: Type checking enhanced for values received from a user input and for variable arguments inside database queries.
+* Update: Own code to build usermeta db table name was excluded. A value from $wpdb->usermeta is used instead.
+
+= [4.38] 27.11.2017 =
+* Security: XSS vulnerability was fixed at URE's options page. Bug was discovered and fixed at tab index value numeric type checking. Tab index value is additionally escaped before output also.
+* Security: Deprecated code for debug output to the .log file in case of database query error was removed.
+* Security: Multiple select jQuery plugin (https://github.com/wenzhixin/multiple-select/) was updated to the latest available version 1.2.1, which fixed XSS vulnerability, existed in earlier versions.
 
 = [4.37] 01.11.2017 =
 * New: New option was added to the "Settings->User Role Editor->General" tab. It's possible to set a default value for a quant of columns at capabilities section of the main User Role Editor page.
@@ -160,3 +172,9 @@ For full list of changes applied to User Role Editor plugin look changelog.txt f
 You can find more information about "User Role Editor" plugin at [this page](http://www.shinephp.com/user-role-editor-wordpress-plugin/)
 
 I am ready to answer on your questions about plugin usage. Use [plugin page comments](http://www.shinephp.com/user-role-editor-wordpress-plugin/) for that.
+
+== Upgrade Notice ==
+= [4.38] 27.11.2017 =
+* Security: XSS vulnerability was fixed at URE's options page. Bug was discovered and fixed at tab index value numeric type checking. Tab index value is additionally escaped before output also.
+* Security: Deprecated code for debug output to the .log file in case of database query error was removed.
+* Security: Multiple select jQuery plugin (https://github.com/wenzhixin/multiple-select/) was updated to the latest available version 1.2.1, which fixed XSS vulnerability, existed in earlier versions.
