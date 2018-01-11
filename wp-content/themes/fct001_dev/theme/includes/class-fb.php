@@ -27,9 +27,11 @@ class SDP_FB {
 
     static function get_og_object_id($og_data) {
         $og_data = reset($og_data);
-        $og_object = isset($og_data['og_object']) ? $og_data['og_object'] : null;
-
-        return $og_object;
+        return (
+            isset($og_data['og_object'])
+                ? $og_data['og_object']['id']
+                : null
+        );
     }
 
     static function has_likes($obj_id) {
