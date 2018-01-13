@@ -79,6 +79,16 @@ $table_prefix  = 'fct001_';
  */
 define('WP_DEBUG', true);
 
+define( 'SMTP_USER',   'info@fbcontests.co.uk' );    // Username to use for SMTP authentication
+define( 'SMTP_PASS',   'Spyros06!' );       // Password to use for SMTP authentication
+define( 'SMTP_HOST',   'a2plcpnl0103.prod.iad2.secureserver.net' );    // The hostname of the mail server
+define( 'SMTP_FROM',   'info@fbcontests.co.uk' ); // SMTP From email address
+define( 'SMTP_NAME',   'Facebook Contests' );    // SMTP From name
+define( 'SMTP_PORT',   '465' );                  // SMTP port number - likely to be 25, 465 or 587
+define( 'SMTP_SECURE', 'ssl' );                 // Encryption system to use - ssl or tls
+define( 'SMTP_AUTH',    true );                 // Use SMTP authentication (true|false)
+define( 'SMTP_DEBUG',   2 );                    // for debugging purposes only set to 1 or 2
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
