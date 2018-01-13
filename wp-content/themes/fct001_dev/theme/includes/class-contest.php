@@ -70,10 +70,10 @@ class SDP_CONTEST {
 
     static function notify_winner($winner_data, $contest) {
         $subject = SDP_MAIL::get_subject();
-        $message = SDP_MAIL::get_populated_email_template($winner_data['winner_name'], $contest);
+        $message = SDP_MAIL::get_populated_email_template($winner_data['name'], $contest);
 
         SDP_MAIL::send_email(
-            $winner_data['winner_email'],
+            $winner_data['email'],
             $subject,
             $message
         );
@@ -84,9 +84,9 @@ class SDP_CONTEST {
         $winner_data = self::pick_winner($nominees_list);
 
         if (!empty($winner_data)) {
-            $winner = self::get_normalized_winner($winner_data);
-            update_field('winner', $winner, $contest->ID);
-            self::notify_winner($winner, $contest);
+            $normalized_winner = self::get_normalized_winner($winner_data);
+            update_field('winner', $normalized_winner, $contest->ID);
+            self::notify_winner($winner_data, $contest);
         }
     }
 }
