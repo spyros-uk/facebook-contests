@@ -20,6 +20,10 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 add_action( 'login_enqueue_scripts', 'admin_css' ); // Adds custom css to admin page
 
+add_action( 'phpmailer_init', 'configure_SMTP' );
+
+/**--- Filters ---**/
+
 add_filter( 'login_headerurl', 'login_logo_url' ); // Add custom logo title
 
 add_filter( 'login_headertitle', 'login_logo_url_title' ); // Add custom logo title
@@ -27,20 +31,6 @@ add_filter( 'login_headertitle', 'login_logo_url_title' ); // Add custom logo ti
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 add_filter('acf/load_field/name=winner', 'disable_winner_field');
-
-// expose php variables to js. just uncomment line
-// below and see function theme_scripts_localize
-// add_action( 'wp_enqueue_scripts', 'theme_scripts_localize', 20 );
-
-/**--- Filters ---**/
-
-
-
-/* =========================================
-		HOOKED Functions
-   ========================================= */
-
-/**--- Actions ---**/
 
 
 /**
@@ -444,4 +434,19 @@ function disable_winner_field( $field ) {
             $subfield['disabled'] = 1;
 
     return $field;
+}
+
+/** Configures SMTP
+ * @param PHPMailer $mailer
+ */
+function configure_SMTP( PHPMailer $mailer ) {
+    $mailer->IsSMTP();
+    $mailer->Host       = SMTP_HOST;
+    $mailer->SMTPAuth   = SMTP_AUTH;
+    $mailer->Port       = SMTP_PORT;
+    $mailer->Username   = SMTP_USER;
+    $mailer->Password   = SMTP_PASS;
+    $mailer->SMTPSecure = SMTP_SECURE;
+    $mailer->From       = SMTP_FROM;
+    $mailer->FromName   = SMTP_NAME;
 }
